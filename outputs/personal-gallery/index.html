@@ -4,16 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#080d0c">
-  <meta name="description" content="郝贵彬的个人作品展览馆。用好奇心探索，用作品记录。首个展品：微光球场 · ORBIT。">
+  <meta name="description" content="郝贵彬的个人作品展览馆。探索微光球场 · ORBIT 互动游戏与声波宇宙 · Sonic Universe 音乐星空，让好奇长成作品。">
   <title>郝贵彬 — 个人作品展览馆</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <meta property="og:title" content="郝贵彬 · 个人作品展览馆">
-  <meta property="og:description" content="让好奇，长成作品。从微光森林出发，探索我的第一个游戏世界。">
+  <meta property="og:description" content="从一颗小球，到一片音乐星空。探索郝贵彬的游戏与音乐交互作品。">
   <link rel="stylesheet" href="assets/style.css?v=2">
   <link rel="stylesheet" href="assets/immersive.css?v=0100">
   <script src="assets/deployment.js?v=0100" defer></script>
-  <script src="assets/content.js?v=0100" defer></script>
-  <script src="assets/gallery.js?v=0100" defer></script>
+  <link rel="stylesheet" href="assets/collection.css?v=0110">
+  <script src="assets/content.js?v=0110" defer></script>
+  <script src="assets/gallery.js?v=0110" defer></script>
   <script src="assets/immersive.js?v=0100" defer></script>
 </head>
 <body>
@@ -56,7 +57,7 @@
       </div>
       <div class="hero-footer">
         <a href="#journey" class="scroll-hint mono"><span class="scroll-line"></span> SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a>
-        <span class="hero-index mono"><span>01</span> / FIRST EXHIBIT · 微光球场</span>
+        <span class="hero-index mono"><span>02</span> / EXHIBITS · 游戏与音乐</span>
         <span class="pointer-note mono">✦ 移动鼠标，让微光跟随你</span>
       </div>
     </section>
@@ -76,7 +77,7 @@
             <p class="eyebrow">CHAPTER 02 / EXPLORATION</p><h2>把想象，<br>一点点<span>实现。</span></h2><p class="story-description">我是郝贵彬，一个正在探索的创作者。<br>从第一行代码开始，让想法拥有自己的形状。</p><div class="story-tags"><span>保持好奇</span><span>动手创造</span><span>持续生长</span></div>
           </article>
           <article class="story-chapter" data-chapter="2" aria-hidden="true">
-            <p class="eyebrow">CHAPTER 03 / THE GALLERY</p><h2>欢迎来到，<br>我的小小<span>宇宙。</span></h2><p class="story-description">第一件展品已经就位。<br>穿过这道微光，亲手体验它。</p><a href="#works" class="button button-primary">进入作品展厅 <span aria-hidden="true">↗</span></a>
+            <p class="eyebrow">CHAPTER 03 / THE GALLERY</p><h2>欢迎来到，<br>我的小小<span>宇宙。</span></h2><p class="story-description">两件展品，两种探索。<br>穿过这道微光，走进游戏与音乐的世界。</p><a href="#works" class="button button-primary">进入作品展厅 <span aria-hidden="true">↗</span></a>
           </article>
         </div>
         <div class="journey-caption mono" aria-hidden="true"><span id="scene-coordinate">01 / FOREST OF IDEAS</span><span class="scene-live"><i class="status-dot"></i> HGB CREATIVE SPACE</span></div>
@@ -85,9 +86,10 @@
       </div>
     </section>
     <section id="works" class="works-section section-shell" aria-labelledby="works-title">
-      <div class="section-topline reveal"><span class="eyebrow">01 / SELECTED WORK</span><span class="mono muted">每一个作品，都是一次出发。</span></div>
-      <div class="section-heading reveal"><h2 id="works-title">我的第一件<span>展品。</span></h2><span class="exhibit-count mono">COLLECTION <b>001</b></span></div>
-      <article class="project-feature reveal">
+      <div class="section-topline reveal"><span class="eyebrow">01 / SELECTED WORKS</span><span class="mono muted">每一个作品，都是一次出发。</span></div>
+      <div class="section-heading reveal"><h2 id="works-title">把想象，变成<span>作品。</span></h2><span class="exhibit-count mono">COLLECTION <b>002</b></span></div>
+      <nav class="collection-index reveal" aria-label="选择展品"><a href="#orbit-exhibit"><span class="mono">001</span> 微光球场 <span aria-hidden="true">↘</span></a><a href="#sonic-exhibit"><span class="mono">002</span> 声波宇宙 <span aria-hidden="true">↘</span></a></nav>
+      <article id="orbit-exhibit" class="project-feature exhibit-anchor reveal">
         <button class="project-art" id="open-project-art" type="button" aria-label="查看微光球场作品详情">
           <div class="project-art-top mono"><span>ORBIT / INTERACTIVE GAME</span><span>✦ EXHIBIT 001</span></div>
           <canvas id="orbit-cover" aria-hidden="true"></canvas>
@@ -107,13 +109,33 @@
       </article>
       <div class="project-experience reveal"><span class="experience-cross" aria-hidden="true">✦</span><div><p class="eyebrow">BEHIND THE LITTLE WORLD</p><p>跟随一点微光，<span>亲自进入这个世界。</span></p></div><button class="text-link open-stage" type="button">打开展台 · 实时预览 <span aria-hidden="true">↗</span></button></div>
       <div class="creation-notes reveal" aria-label="微光球场的创作记录"><article><span class="mono">01 / THE IDEA</span><h4>从一颗小球开始</h4><p>把吞噬、成长和探索，变成一个打开网页就能体验的小游戏。</p></article><article><span class="mono">02 / THE EXPERIENCE</span><h4>让每一步有回应</h4><p>用微光、轻音效与实时排行，让收集、分身和追逐更有感觉。</p></article><article><span class="mono">03 / THE CONNECTION</span><h4>让一个人变成一起玩</h4><p>从单机探索到 2v2 团队，朋友和人机一起加入；同步优化让追逐更连贯。</p></article></div>
+      <article id="sonic-exhibit" class="project-feature sonic-feature exhibit-anchor reveal" aria-labelledby="sonic-title">
+        <div class="project-copy">
+          <p class="project-kicker mono"><span class="status-dot"></span> SOUND & STARDUST / 声音与星尘</p>
+          <h3 id="sonic-title"><span data-sonic-title>声波宇宙</span><span class="project-subtitle" data-sonic-subtitle>SONIC UNIVERSE / 音乐交互作品</span></h3>
+          <p class="project-description" data-sonic-description>让旋律坠入星海。低音推动星环，旋律点亮星尘，在银河、山峰与引力黑洞之间，把一首歌变成可以漫游、演奏和收藏的宇宙。</p>
+          <div class="project-tags" aria-label="声波宇宙项目技术"><span>Web Audio</span><span>WebGL</span><span>Canvas</span><span>JavaScript</span></div>
+          <dl class="project-meta"><div><dt>作品类型</dt><dd>音乐可视化 / 互动创作</dd></div><div><dt>体验方式</dt><dd>浏览器直接体验</dd></div><div><dt>当前版本</dt><dd><span data-sonic-edition>第十一版</span> · <time data-sonic-updated datetime="2026-10-26">2026-10-26</time></dd></div><div><dt>音乐来源</dt><dd>内置原创音景 / 自己的音乐</dd></div></dl>
+          <div class="project-actions"><a class="button button-primary sonic-link" href="https://hgb-2005.github.io/sonic-universe/" target="_blank" rel="noopener"><span>进入宇宙</span><span class="button-arrow" aria-hidden="true">↗</span></a><button class="text-link" data-open-sonic type="button">作品详情 <span aria-hidden="true">＋</span></button></div>
+          <a class="source-link mono" data-sonic-repository href="https://github.com/Hgb-2005/sonic-universe" target="_blank" rel="noopener">VIEW ON GITHUB <span aria-hidden="true">↗</span></a>
+          <p class="sonic-listening-note">戴上耳机，播放一首原创音景，开始你的星际漫游。</p>
+        </div>
+        <button class="project-art sonic-art" data-open-sonic type="button" aria-label="查看声波宇宙作品详情">
+          <img src="assets/sonic-blackhole.webp" alt="声波宇宙真实画面：金色星尘环绕引力黑洞，构成可以随音乐变化的宇宙" width="1200" height="750" loading="lazy" decoding="async">
+          <span class="project-art-top mono"><span>SONIC UNIVERSE</span><span>✦ EXHIBIT 002</span></span>
+          <span class="sonic-art-coordinate mono">04 / EVENT HORIZON<br><span>让音乐，成为星空。</span></span>
+          <span class="sonic-cover-title" aria-hidden="true">SONIC<br>UNIVERSE<span>聆听 · 漫游 · 创造</span></span>
+          <span class="art-open" aria-hidden="true">↗</span>
+        </button>
+      </article>
+      <div class="creation-notes sonic-notes reveal" aria-label="声波宇宙的体验亮点"><article><span class="mono">01 / LISTEN</span><h4>听见星空的形状</h4><p>星环、银河、山峰与黑洞，让低音和旋律拥有各自的光与引力。</p></article><article><span class="mono">02 / EXPLORE</span><h4>走进自己的宇宙</h4><p>沉浸漫游、音乐剧情与星际乐器台，从听一首歌，到亲手演奏星空。</p></article><article><span class="mono">03 / KEEP</span><h4>把这一刻带回家</h4><p>定格星空明信片，或录制带声音的横屏、竖屏短片，收藏你的创作。</p></article></div>
       <div class="next-exhibit reveal"><span class="next-star" aria-hidden="true">✳</span><p>下一件作品，<span>正在路上。</span></p><span class="mono">THE STORY CONTINUES —</span></div>
     </section>
     <section id="about" class="about-section section-shell" aria-labelledby="about-title">
       <div class="section-topline reveal"><span class="eyebrow">02 / THE CREATOR</span><span class="mono muted">作品背后，是持续好奇的人。</span></div>
       <div class="about-layout reveal">
         <div class="identity-art" aria-hidden="true"><div class="identity-orbit orbit-one"></div><div class="identity-orbit orbit-two"></div><span class="identity-initials">H<span>G</span>B</span><span class="identity-name mono">HAO GUIBIN · 创造进行时</span><span class="identity-point point-one"></span><span class="identity-point point-two"></span></div>
-        <div class="about-copy"><p class="eyebrow">HELLO, WORLD.</p><h2 id="about-title">我是<span data-name>郝贵彬</span>，<br>很高兴你来到这里。</h2><p>这座展览馆，从一个刚刚完成的游戏开始。</p><p>我想把脑海里的想法变成可以看见、可以体验的作品，也把从零开始的每一步认真收藏。现在展品还不多，但新的故事会慢慢发生。</p><div class="about-signature"><span data-name>郝贵彬</span><span class="mono">CURIOSITY → IDEAS → CREATION</span></div></div>
+        <div class="about-copy"><p class="eyebrow">HELLO, WORLD.</p><h2 id="about-title">我是<span data-name>郝贵彬</span>，<br>很高兴你来到这里。</h2><p>这座展览馆，从一颗小球开始，慢慢长出了一片音乐星空。</p><p>从「微光球场」到「声波宇宙」，我在游戏、声音和交互之间探索，把脑海里的想法变成可以看见、可以体验的作品，也把从零开始的每一步认真收藏。</p><div class="about-signature"><span data-name>郝贵彬</span><span class="mono">CURIOSITY → IDEAS → CREATION</span></div></div>
       </div>
     </section>
     <section class="closing section-shell reveal"><span class="eyebrow">THANK YOU FOR VISITING</span><p>世界很大，<br>一起创造一点<span>有趣的。</span></p><a class="text-link" data-profile href="https://github.com/Hgb-2005" target="_blank" rel="noopener">在 GitHub 看看我的新作品 <span aria-hidden="true">↗</span></a><span class="closing-spark" aria-hidden="true">✳</span></section>
@@ -124,6 +146,11 @@
     <button class="dialog-close" id="close-project" type="button" aria-label="关闭作品详情">×</button>
     <div class="detail-stage"><div class="preview-topbar"><span class="mono"><i class="status-dot"></i> ORBIT / LIVE EXHIBIT</span><button id="stop-preview" type="button" hidden>结束试玩 <span aria-hidden="true">↗</span></button><span id="preview-state" role="status">正在准备预览…</span></div><div class="live-preview"><img src="assets/orbit-preview.webp" alt="微光球场的真实游戏画面：小球在食物与对手之间探索" width="1440" height="960"><iframe id="game-preview" title="微光球场实时预览" tabindex="-1" data-preview-url="play/?exhibit=1"></iframe><div class="preview-curtain"><span class="preview-orbit" aria-hidden="true">◌</span><p>一个可以亲手探索的世界。</p><span>点击进入，试着收集第一点微光。</span><button id="activate-preview" class="button button-primary" type="button">在展厅内试玩 <span aria-hidden="true">↗</span></button><span class="preview-offline" hidden>当前为静态预览，请启动本机展览馆，或下载完整游戏。</span></div></div><p class="preview-bottom mono">EAT. GROW. EXPLORE.<span>EXHIBIT 001 — HAO GUIBIN</span></p></div>
     <div class="dialog-content"><p class="eyebrow">EXHIBIT 001 / PROJECT NOTES</p><h2 id="dialog-title">微光球场<span>球球大作战 · ORBIT</span></h2><p class="dialog-intro">从小小一颗开始，长成自己的世界。<br><span data-project-version>v0.10.0</span> · 团队模式、手机摇杆与同步优化</p><div class="project-tags"><span>Flask</span><span>Canvas</span><span>WebSocket</span><span>SQLite</span></div><p>鼠标控制移动，吃掉食物让小球成长，也要躲开更大的对手。从单机探索到局域网联机，把一个简单想法做成可以亲手体验的小世界。</p><div class="detail-grid"><div><span class="mono">01 / EXPLORE</span><h3>自由生长</h3><p>经典探索与单机生存，鼠标、键盘和手机摇杆都能操作。</p></div><div><span class="mono">02 / CONNECT</span><h3>一起游玩</h3><p>真人与人机组队，支持生存乱斗、2v2 团队与 3 / 5 / 8 分钟时长；队友可以吐孢子相互喂养。</p></div></div><p class="controls-caption">鼠标 / WASD / 手机摇杆移动<br>右键 / Q 分身 · 左键 / E 吐孢子<br>空格暂停 · R 重新开始</p><div class="dialog-actions"><a class="button button-primary play-link" href="play/" target="_blank" rel="noopener"><span data-play-label>独立窗口游玩</span> <span aria-hidden="true">↗</span></a><a class="text-link" data-repository href="https://github.com/Hgb-2005/orbit-game" target="_blank" rel="noopener">查看源码 ↗</a></div><p><a class="text-link" data-release href="https://github.com/Hgb-2005/orbit-game/releases/tag/v0.10.0" target="_blank" rel="noopener">查看版本说明与下载 ↗</a></p><p class="dialog-endnote mono">SMALL BEGINNINGS. REAL EXPERIENCES.</p></div>
+  </dialog>
+  <dialog id="sonic-dialog" aria-labelledby="sonic-dialog-title">
+    <button class="dialog-close" id="close-sonic" type="button" aria-label="关闭声波宇宙作品详情" autofocus>×</button>
+    <div class="sonic-detail-art"><img src="assets/sonic-preview.webp" alt="声波宇宙第十一版完整界面，包含音乐播放器、宇宙形态、视觉预设和引力黑洞" width="1000" height="962" loading="lazy" decoding="async"><span class="mono">EXHIBIT 002 / SOUND & STARDUST</span></div>
+    <div class="dialog-content"><p class="eyebrow">EXHIBIT 002 / PROJECT NOTES</p><h2 id="sonic-dialog-title">声波宇宙<span>SONIC UNIVERSE</span></h2><p class="dialog-intro">让音乐，成为星空。<br><span data-sonic-edition>第十一版</span> · 在浏览器里聆听、漫游与创作</p><div class="project-tags"><span>Web Audio</span><span>WebGL</span><span>Canvas</span></div><p>播放内置原创音景，或导入自己的音乐。声音分析驱动星尘与光环，低音和旋律在四种宇宙形态之间展开。</p><div class="detail-grid"><div><span class="mono">01 / A UNIVERSE TO EXPLORE</span><h3>沉浸漫游</h3><p>星环、银河、山峰与引力黑洞；拖动旋转、缩放视角，用音乐剧情串起一段星际旅程。</p></div><div><span class="mono">02 / A MOMENT TO KEEP</span><h3>亲手创作</h3><p>弹奏星际乐器，录制循环与叠录；保存视觉预设，导出明信片或带声音的短片。</p></div></div><p class="sonic-privacy-note">导入的音乐、图片与草稿保存在当前浏览器中。推荐使用 Edge 或 Chrome，戴上耳机体验。</p><div class="dialog-actions"><a class="button button-primary sonic-link" href="https://hgb-2005.github.io/sonic-universe/" target="_blank" rel="noopener">进入宇宙 <span aria-hidden="true">↗</span></a><a class="text-link" data-sonic-repository href="https://github.com/Hgb-2005/sonic-universe" target="_blank" rel="noopener">查看源码 ↗</a></div></div>
   </dialog>
   <p class="sr-only" id="sound-status" aria-live="polite"></p>
 </body>

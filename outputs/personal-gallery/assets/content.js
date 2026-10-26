@@ -4,6 +4,15 @@ window.GALLERY_CONTENT = {
   englishName: 'HAO GUIBIN',
   year: '2026',
   github: 'https://github.com/Hgb-2005',
+  sonic: {
+    title: '声波宇宙',
+    subtitle: 'SONIC UNIVERSE / 音乐交互作品',
+    description: '让旋律坠入星海。低音推动星环，旋律点亮星尘，在银河、山峰与引力黑洞之间，把一首歌变成可以漫游、演奏和收藏的宇宙。',
+    edition: '第十一版',
+    updated: '2026-10-26',
+    url: 'https://hgb-2005.github.io/sonic-universe/',
+    repository: 'https://github.com/Hgb-2005/sonic-universe'
+  },
   project: {
     title: '微光球场',
     subtitle: '球球大作战 · ORBIT',

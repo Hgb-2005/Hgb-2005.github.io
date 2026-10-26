@@ -1,0 +1,42 @@
+/* 两件展品共用展厅的微光色调；声音展品以真实画面呈现金色星尘。 */
+.collection-index{display:flex;flex-wrap:wrap;gap:12px 28px;margin:-22px 0 40px}
+.collection-index a{display:inline-flex;align-items:center;gap:14px;font-size:11px;color:#acbca2;padding:10px 0;border-bottom:1px solid #a6c48c33}
+.collection-index a:hover{color:var(--accent);border-color:var(--accent)}
+.collection-index .mono{font-size:8px;color:#7d976c}
+.exhibit-anchor{scroll-margin-top:115px}
+.sonic-feature{grid-template-columns:1fr 1.2fr;margin-top:72px;padding-top:66px;border-top:1px solid var(--line)}
+.sonic-feature .project-copy{min-width:0}
+.sonic-feature .project-kicker .status-dot{background:#e6c28b;box-shadow:0 0 12px #d2a86566}
+.sonic-listening-note{margin-top:18px;font-size:10px;line-height:1.9;color:#83957c}
+.sonic-art{background:#090c13;min-width:0;isolation:isolate}
+.sonic-art>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 30%;transition:transform .7s}
+.sonic-art:hover>img{transform:scale(1.035)}
+.sonic-art:before{opacity:1;background:linear-gradient(180deg,#070b1380,transparent 25%,transparent 52%,#070b13ed 100%);z-index:0}
+.sonic-art:after{border-color:#e6c28b12}
+.sonic-art .project-art-top{color:#d3c8b6;font-size:7px;z-index:1}
+.sonic-art .project-art-top>span:last-child{color:#a99e8a}
+.sonic-art-coordinate{position:absolute;top:72px;left:25px;font-size:7px;color:#b99a68;line-height:2;z-index:1}
+.sonic-art-coordinate>span{color:#a4a4aa;font:10px var(--sans);letter-spacing:.13em}
+.sonic-cover-title{position:absolute;left:25px;bottom:28px;z-index:1;font:300 clamp(28px,3.6vw,56px)/1.12 var(--sans);letter-spacing:.13em;color:#ede6d9}
+.sonic-cover-title>span{display:block;font:9px var(--sans);letter-spacing:.25em;margin-top:17px;color:#bdb7aa}
+.sonic-art .art-open{color:#e4c38c;border-color:#c6ac7955;z-index:1}
+.sonic-notes{margin-top:39px}
+#sonic-dialog{width:min(1120px,calc(100vw - 56px));height:min(820px,calc(100svh - 70px));max-height:calc(100svh - 70px);overflow:hidden;padding:0;background:#101713;grid-template-columns:minmax(0,1.08fr) minmax(340px,1fr)}
+#sonic-dialog[open]{display:grid}
+#sonic-dialog .dialog-close{z-index:3;top:16px;right:18px;background:#18221a;color:#d6e4ca}
+.sonic-detail-art{display:flex;flex-direction:column;justify-content:center;gap:20px;min-width:0;min-height:0;background:radial-gradient(ellipse,#322b1a44,#080c11);padding:28px;border-right:1px solid var(--line)}
+.sonic-detail-art img{display:block;width:100%;height:auto;max-height:calc(100% - 40px);object-fit:contain;border:1px solid #c6ac792b;border-radius:3px}
+.sonic-detail-art>.mono{font-size:7px;line-height:1.8;color:#a28f70}
+#sonic-dialog .dialog-content{min-width:0;overflow-y:auto;padding:60px 34px 32px;scrollbar-width:thin;scrollbar-color:#75945b44 transparent}
+#sonic-dialog .eyebrow{font-size:8px}
+#sonic-dialog h2{font-size:36px;margin:22px 0}
+#sonic-dialog h2>span{display:block;font:10px var(--mono);letter-spacing:.14em;color:#b5bfaa;margin-top:12px}
+#sonic-dialog .dialog-intro{font-size:12px}
+#sonic-dialog .detail-grid{gap:24px}
+#sonic-dialog .detail-grid h3{font-size:16px}
+#sonic-dialog .detail-grid .mono{font-size:7px;letter-spacing:.04em;line-height:1.8;display:block}
+#sonic-dialog .sonic-privacy-note{font-size:10px;line-height:1.9;color:#94a189;padding-top:19px;border-top:1px solid var(--line)}
+#sonic-dialog .dialog-actions{flex-wrap:wrap;gap:18px}
+@media(max-width:1100px){.sonic-art .project-art-top{font-size:6px;left:18px;right:18px}.sonic-cover-title{font-size:35px}#sonic-dialog{grid-template-columns:minmax(0,1fr) minmax(320px,1fr)}.sonic-detail-art{padding:20px}#sonic-dialog .dialog-content{padding-left:25px;padding-right:25px}}
+@media(max-width:740px){.collection-index{margin:-9px 0 30px;gap:12px 23px}.collection-index a{font-size:10px;gap:11px}.exhibit-anchor{scroll-margin-top:93px}.sonic-feature{grid-template-columns:1fr;margin-top:40px;padding-top:39px;gap:29px}.sonic-art{grid-row:1;aspect-ratio:1.13}.sonic-art .project-art-top{font-size:6px;left:20px;right:20px}.sonic-art-coordinate{left:20px;top:55px;font-size:6px}.sonic-art-coordinate>span{font-size:9px}.sonic-cover-title{left:20px;bottom:24px;font-size:35px}.sonic-cover-title>span{font-size:8px;margin-top:13px}.sonic-listening-note{font-size:9px;margin-top:14px}#sonic-dialog{width:calc(100vw - 20px);height:calc(100svh - 24px);max-height:calc(100svh - 24px);grid-template-columns:1fr;grid-template-rows:minmax(160px,32%) minmax(0,1fr)}#sonic-dialog .dialog-close{top:11px;right:13px;background:#18221af2}.sonic-detail-art{padding:13px;border-right:0;border-bottom:1px solid var(--line);gap:8px}.sonic-detail-art img{height:100%;width:100%;min-height:0;max-height:100%;object-fit:cover;object-position:50% 27%}.sonic-detail-art>.mono{display:none}#sonic-dialog .dialog-content{padding:26px 23px}#sonic-dialog h2{font-size:30px;margin:17px 0}#sonic-dialog .detail-grid{gap:20px}#sonic-dialog .dialog-actions .button{min-height:42px;padding:11px 16px}#sonic-dialog .dialog-actions .text-link{font-size:11px}}
+@media(max-width:359px){.sonic-art .project-art-top{font-size:5px;gap:7px}.sonic-cover-title{font-size:28px}.sonic-art-coordinate>span{font-size:8px}#sonic-dialog .dialog-content{padding-left:18px;padding-right:18px}}

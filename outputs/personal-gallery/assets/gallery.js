@@ -3,6 +3,14 @@
 
   var content = window.GALLERY_CONTENT || {};
   var project = content.project || {};
+  var sonic = content.sonic || {};
+  document.querySelectorAll('[data-sonic-title]').forEach(function (node) { node.textContent = sonic.title || '声波宇宙'; });
+  document.querySelectorAll('[data-sonic-subtitle]').forEach(function (node) { node.textContent = sonic.subtitle || 'SONIC UNIVERSE / 音乐交互作品'; });
+  document.querySelectorAll('[data-sonic-description]').forEach(function (node) { if (sonic.description) node.textContent = sonic.description; });
+  document.querySelectorAll('[data-sonic-edition]').forEach(function (node) { node.textContent = sonic.edition || '第十一版'; });
+  document.querySelectorAll('[data-sonic-updated]').forEach(function (node) { if (sonic.updated) { node.textContent = sonic.updated; node.dateTime = sonic.updated; } });
+  document.querySelectorAll('.sonic-link').forEach(function (node) { node.href = sonic.url || 'https://hgb-2005.github.io/sonic-universe/'; });
+  document.querySelectorAll('[data-sonic-repository]').forEach(function (node) { node.href = sonic.repository || 'https://github.com/Hgb-2005/sonic-universe'; });
   document.querySelectorAll('[data-name]').forEach(function (node) { node.textContent = content.name || '郝贵彬'; });
   document.querySelectorAll('[data-year]').forEach(function (node) { node.textContent = content.year || '2026'; });
   document.querySelectorAll('[data-profile]').forEach(function (node) { node.href = content.github || 'https://github.com/Hgb-2005'; });
@@ -53,6 +61,26 @@
     document.body.classList.remove('dialog-open');
     window.dispatchEvent(new CustomEvent('gallery:project-close'));
     if (lastFocus) lastFocus.focus({ preventScroll: true });
+  });
+
+  var sonicDialog = document.getElementById('sonic-dialog');
+  var sonicFocus = null;
+  document.querySelectorAll('[data-open-sonic]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      sonicFocus = document.activeElement;
+      sonicDialog.showModal();
+      document.body.classList.add('dialog-open');
+    });
+  });
+  document.getElementById('close-sonic').addEventListener('click', function () { sonicDialog.close(); });
+  sonicDialog.addEventListener('click', function (event) {
+    if (event.target !== sonicDialog) return;
+    var bounds = sonicDialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) sonicDialog.close();
+  });
+  sonicDialog.addEventListener('close', function () {
+    document.body.classList.remove('dialog-open');
+    if (sonicFocus) sonicFocus.focus({ preventScroll: true });
   });
 
   if ('IntersectionObserver' in window && !reduced) {
@@ -321,7 +349,7 @@
     } catch (error) { soundStatus.textContent = '环境音暂时无法播放，请再次点击重试。'; }
   }
   soundToggle.addEventListener('click', toggleSound);
-  document.querySelectorAll('.play-link').forEach(function (link) {
+  document.querySelectorAll('.play-link, .sonic-link').forEach(function (link) {
     link.addEventListener('click', function () {
       if (soundEnabled) void toggleSound();
     });
