@@ -1,0 +1,11 @@
+work/
+**/.venv/
+**/venv/
+**/__pycache__/
+**/*.py[cod]
+**/instance/
+**/.pytest_cache/
+outputs/*.zip
+outputs/*.png
+outputs/site/
+outputs/publish-report.json
