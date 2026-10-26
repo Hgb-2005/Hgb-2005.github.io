@@ -127,25 +127,18 @@
     return state;
   }
   var background = setupCanvas('atmosphere');
-  var universe = setupCanvas('universe');
   var cover = setupCanvas('orbit-cover');
   if ('IntersectionObserver' in window) {
     var canvasObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.target === universe.canvas) universe.visible = entry.isIntersecting;
         if (entry.target === cover.canvas) cover.visible = entry.isIntersecting;
         if (entry.isIntersecting && (reduced || paused)) { lastFrame = 0; startAnimation(); }
       });
     });
-    canvasObserver.observe(universe.canvas); canvasObserver.observe(cover.canvas);
+    canvasObserver.observe(cover.canvas);
   }
   var motes = Array.from({ length: 85 }, function () {
     return { x: random(), y: random(), r: 0.4 + random() * 1.5, phase: random() * Math.PI * 2, speed: .02 + random() * .045 };
-  });
-  var galaxyPoints = Array.from({ length: 450 }, function () {
-    var angle = random() * Math.PI * 2;
-    var radius = 1.15 + random() * 1.45;
-    return { angle: angle, radius: radius, height: (random() - .5) * .46, r: .3 + random() * 1.1, alpha: .1 + random() * .45, speed: .7 + random() * .6 };
   });
   var coverPoints = Array.from({ length: 100 }, function () {
     return { x: random(), y: random(), r: .8 + random() * 2, phase: random() * 6.28, color: Math.floor(random() * 4) };
@@ -210,91 +203,6 @@
       circle(ctx, x, y, p.r, 'rgba(185,226,144,' + alpha + ')');
       if (p.r > 1.4) glow(ctx, x, y, 8, '184,231,141', alpha * .2);
     });
-  }
-
-  function point3D(lat, lon, rotation) {
-    var x = Math.cos(lat) * Math.cos(lon), y = Math.sin(lat), z = Math.cos(lat) * Math.sin(lon);
-    var xx = x * Math.cos(rotation) + z * Math.sin(rotation);
-    var zz = -x * Math.sin(rotation) + z * Math.cos(rotation);
-    var yy = y * .96 - zz * .28;
-    return { x: xx, y: yy, z: y * .28 + zz * .96 };
-  }
-
-  function drawUniverse(t) {
-    if (!universe.visible) return;
-    var ctx = universe.ctx, w = universe.width, h = universe.height;
-    if (w < 1 || h < 1) return;
-    ctx.clearRect(0, 0, w, h);
-    var driftX = reduced ? 0 : (pointer.x - .5) * 11;
-    var driftY = reduced ? 0 : (pointer.y - .5) * 8;
-    var cx = w * .51 + driftX, cy = h * .49 + driftY;
-    var r = Math.min(w * .235, h * .28);
-    var rotation = t * .085;
-    glow(ctx, cx, cy, r * 2.7, '124,180,76', .115);
-    var ringTilt = -.42;
-    ctx.save(); ctx.translate(cx, cy); ctx.rotate(ringTilt);
-    [1.38, 1.61, 2.02].forEach(function (scale, index) {
-      ctx.beginPath(); ctx.ellipse(0, 0, r * scale, r * scale * .42, 0, 0, 6.283);
-      ctx.lineWidth = index === 0 ? .8 : .5;
-      ctx.strokeStyle = ['rgba(174,209,139,.27)', 'rgba(174,209,139,.12)', 'rgba(174,209,139,.07)'][index]; ctx.stroke();
-    });
-    ctx.restore();
-    galaxyPoints.forEach(function (p) {
-      var a = p.angle + t * .025 * p.speed;
-      var xx = Math.cos(a) * r * p.radius, yy = Math.sin(a) * r * p.radius * .42;
-      var x = cx + xx * Math.cos(ringTilt) - yy * Math.sin(ringTilt);
-      var y = cy + xx * Math.sin(ringTilt) + yy * Math.cos(ringTilt) + p.height * r;
-      circle(ctx, x, y, p.r, 'rgba(189,224,154,' + p.alpha + ')');
-    });
-    glow(ctx, cx - r * .3, cy - r * .3, r * 1.3, '165,213,106', .1);
-    var gradient = ctx.createRadialGradient(cx - r * .38, cy - r * .45, 0, cx + r * .3, cy + r * .25, r * 1.35);
-    gradient.addColorStop(0, '#4d6741'); gradient.addColorStop(.27, '#2d482d'); gradient.addColorStop(.6, '#142b20'); gradient.addColorStop(1, '#07110d');
-    circle(ctx, cx, cy, r, gradient);
-    ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, r, 0, 6.283); ctx.clip();
-    for (var lat = -75; lat <= 75; lat += 15) {
-      var previous = null;
-      for (var step = 0; step <= 100; step++) {
-        var p = point3D(lat * Math.PI / 180, step * Math.PI / 50, rotation);
-        if (previous) {
-          ctx.beginPath(); ctx.moveTo(cx + previous.x * r, cy + previous.y * r); ctx.lineTo(cx + p.x * r, cy + p.y * r);
-          ctx.strokeStyle = 'rgba(190,230,152,' + (p.z > 0 ? .18 + p.z * .18 : .055) + ')'; ctx.lineWidth = .65; ctx.stroke();
-        }
-        previous = p;
-      }
-    }
-    for (var lon = 0; lon < 360; lon += 20) {
-      var last = null;
-      for (var j = 0; j <= 60; j++) {
-        var p2 = point3D(-Math.PI / 2 + j * Math.PI / 60, lon * Math.PI / 180, rotation);
-        if (last) {
-          ctx.beginPath(); ctx.moveTo(cx + last.x * r, cy + last.y * r); ctx.lineTo(cx + p2.x * r, cy + p2.y * r);
-          ctx.strokeStyle = 'rgba(182,227,141,' + (p2.z > 0 ? .15 + p2.z * .14 : .04) + ')'; ctx.lineWidth = .65; ctx.stroke();
-        }
-        last = p2;
-      }
-    }
-    for (var i = 0; i < 160; i++) {
-      var p3 = point3D(Math.sin(i * 91.3) * 1.48, i * 2.3999, rotation);
-      if (p3.z > 0) circle(ctx, cx + p3.x * r, cy + p3.y * r, i % 7 === 0 ? 1.6 : .7, 'rgba(223,255,181,' + (.2 + p3.z * .5) + ')');
-    }
-    ctx.restore();
-    ctx.beginPath(); ctx.arc(cx, cy, r, 0, 6.283); ctx.strokeStyle = 'rgba(205,243,164,.4)'; ctx.lineWidth = .9; ctx.stroke();
-    ctx.beginPath(); ctx.arc(cx, cy, r + 3, 3.6, 4.9); ctx.strokeStyle = 'rgba(208,245,172,.65)'; ctx.lineWidth = 1.1; ctx.stroke();
-    var satellites = [{angle:.7, radius:1.55, size:.19, rgb:'183,223,143'}, {angle:3.75, radius:1.65, size:.12, rgb:'153,195,193'}, {angle:5.7, radius:1.9, size:.08, rgb:'224,185,115'}];
-    satellites.forEach(function (s) {
-      var a = s.angle + t * .055;
-      var ox = Math.cos(a) * r * s.radius, oy = Math.sin(a) * r * s.radius * .48;
-      var x = cx + ox * Math.cos(ringTilt) - oy * Math.sin(ringTilt);
-      var y = cy + ox * Math.sin(ringTilt) + oy * Math.cos(ringTilt);
-      cell(ctx, x, y, r * s.size, s.rgb, .9);
-    });
-    // 坐标准星与微型比例尺。
-    ctx.strokeStyle = 'rgba(181,209,156,.25)'; ctx.lineWidth = .7;
-    [[cx - r * 1.8, cy - r * .65], [cx + r * 1.55, cy + r * .88]].forEach(function (p) {
-      ctx.beginPath(); ctx.moveTo(p[0] - 5, p[1]); ctx.lineTo(p[0] + 5, p[1]); ctx.moveTo(p[0], p[1] - 5); ctx.lineTo(p[0], p[1] + 5); ctx.stroke();
-    });
-    ctx.font = '8px Consolas, monospace'; ctx.fillStyle = '#8d9b7a';
-    ctx.fillText('GROW / 001', cx - r * 1.8, cy - r * .65 - 12);
   }
 
   function drawCover(t) {
@@ -366,7 +274,7 @@
     if (time - lastFrame >= 32 || reduced || paused) {
       lastFrame = time;
       var t = reduced || paused ? 12 : time / 1000;
-      drawBackground(t); drawUniverse(t); drawCover(t);
+      drawBackground(t); drawCover(t);
     }
     if (!reduced && !paused) animationId = requestAnimationFrame(render);
   }

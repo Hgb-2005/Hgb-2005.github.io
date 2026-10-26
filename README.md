@@ -12,6 +12,12 @@
 - `outputs/personal-gallery/`：完整本机展览馆，内含与游戏发布标签一致的游戏源码。
 - `tools/build-pages.py`：生成 GitHub Pages 展厅与浏览器单机试玩。
 
+## 互动工作室升级
+
+首页是一间原创等距工作室：游戏机通向「微光球场」，星空装置通向「声波宇宙」，微光向导会回应点击与键盘操作。每件作品保留直接体验入口，并增加可展开的创作笔记。底部展厅导航支持手机、平板与桌面，动态效果可暂停，也会尊重系统的减少动态效果设置。
+
+设计借鉴了 [Henry 的空间作品集](https://github.com/henryjeff/portfolio-website)、[Bruno Simon 的探索式导航](https://github.com/brunosimon/folio-2019)、[Craftzdog 的个人角色与工作室氛围](https://github.com/craftzdog/craftzdog-homepage)，以及 [Brittany Chiang 的项目信息层级](https://github.com/bchiang7/v4)。工作室、角色与展台使用本仓库原创 SVG、CSS 和 JavaScript 实现，作品画面来自自己的项目。
+
 ## 本机试玩
 
 双击 `outputs/personal-gallery/start.bat`，浏览器打开 http://127.0.0.1:8766/ 。完整游戏位于 `/play/`，首次运行自动安装依赖。本机展厅单独创建数据库，不会覆盖原游戏的最高分。

@@ -14,8 +14,10 @@
   <script src="assets/deployment.js?v=0100" defer></script>
   <link rel="stylesheet" href="assets/collection.css?v=0110">
   <script src="assets/content.js?v=0111" defer></script>
-  <script src="assets/gallery.js?v=0111" defer></script>
-  <script src="assets/immersive.js?v=0100" defer></script>
+  <link rel="stylesheet" href="assets/studio.css?v=0200">
+  <script src="assets/gallery.js?v=0200" defer></script>
+  <script src="assets/immersive.js?v=0200" defer></script>
+  <script src="assets/studio.js?v=0200" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#works">跳到作品</a>
@@ -45,20 +47,114 @@
         <p class="eyebrow"><span class="tiny-cross" aria-hidden="true">✦</span> PERSONAL GALLERY <span class="eyebrow-slash">/</span> 2026</p>
         <p class="hero-greeting">你好，我是<span data-name>郝贵彬</span>。</p>
         <h1 id="hero-title">让好奇，<br>长成<span class="title-accent">作品。</span></h1>
-        <p class="hero-description">从一颗小球，到一个自己的宇宙。<br>这里收藏我的创造，也记录每一个新的开始。</p>
-        <div class="hero-entry"><a class="button button-primary enter-gallery" href="#journey"><span>开启这段旅程</span><span class="button-arrow" aria-hidden="true">↓</span></a><a href="#works" class="skip-intro">直接看作品 ↗</a></div>
-        <span class="hero-side-note mono">BUILT WITH CURIOSITY. ALWAYS IN PROGRESS.</span>
+        <p class="hero-description">一间工作室，两个可以亲手探索的世界。<br>玩一局小游戏，再去听一片星空。</p>
+        <div class="hero-entry"><a class="button button-primary enter-gallery" href="#works"><span>走进作品展厅</span><span class="button-arrow" aria-hidden="true">↓</span></a><a href="#journey" class="skip-intro">看创作旅程 ↗</a></div>
+        <div class="creator-strip"><span class="creator-avatar" aria-hidden="true">h<span>✦</span></span><div><span>郝贵彬的数字工作室</span><p>游戏 × 音乐 × 交互</p></div><span class="studio-open mono"><i class="status-dot"></i> OPEN TO EXPLORE</span></div>
       </div>
-      <div class="hero-art" aria-label="由光点、轨道和小球组成的动态星球">
-        <span class="art-coordinate mono">FIG. 001 / THE BEGINNING</span>
-        <canvas id="universe" aria-hidden="true"></canvas>
-        <div class="art-label"><span class="status-dot"></span><span>一个小小的想法，正在生长</span></div>
-        <span class="orbit-coordinate mono">HGB<br>CREATIVE<br>SPACE ↗</span>
+      <div class="hero-art studio" data-active="all">
+        <div class="studio-topline mono"><span><i class="status-dot"></i> HGB / CREATIVE STUDIO</span><span>VOL. 02 — 2026</span></div>
+        <div class="studio-scene">
+          <svg class="studio-room" viewBox="0 0 760 590" role="group" aria-label="郝贵彬的互动工作室，选择游戏机、星空装置或微光向导">
+            <defs>
+              <linearGradient id="room-left" x2="1" y2="1"><stop stop-color="#283a31"/><stop offset="1" stop-color="#14211b"/></linearGradient>
+              <linearGradient id="room-right" x2="0" y2="1"><stop stop-color="#1e3028"/><stop offset="1" stop-color="#101c19"/></linearGradient>
+              <linearGradient id="room-floor" x2="1" y2="1"><stop stop-color="#344c3b"/><stop offset="1" stop-color="#18291f"/></linearGradient>
+              <linearGradient id="cabinet-face" x2="0" y2="1"><stop stop-color="#6b8060"/><stop offset="1" stop-color="#293f2d"/></linearGradient>
+              <linearGradient id="window-sky" x2="0" y2="1"><stop stop-color="#071016"/><stop offset="1" stop-color="#1c3431"/></linearGradient>
+              <radialGradient id="companion-glass" cx=".32" cy=".26" r=".75"><stop stop-color="#f1ffd6"/><stop offset=".4" stop-color="#bbdf8b"/><stop offset="1" stop-color="#497c58"/></radialGradient>
+              <radialGradient id="sonic-core"><stop stop-color="#fff1cd"/><stop offset=".22" stop-color="#dbb97b"/><stop offset="1" stop-color="#987343" stop-opacity="0"/></radialGradient>
+              <radialGradient id="room-glow"><stop stop-color="#bde997" stop-opacity=".18"/><stop offset="1" stop-color="#bde997" stop-opacity="0"/></radialGradient>
+              <filter id="soft-glow" x="-70%" y="-70%" width="240%" height="240%"><feGaussianBlur stdDeviation="5"/></filter>
+              <pattern id="floor-grid" width="44" height="44" patternTransform="matrix(.866 .5 -.866 .5 370 212)" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#9bb98b" stroke-opacity=".13"/></pattern>
+            </defs>
+            <ellipse cx="386" cy="478" rx="294" ry="69" fill="#000" opacity=".24"/>
+            <ellipse cx="392" cy="334" rx="350" ry="249" fill="url(#room-glow)"/>
+            <g class="room-architecture" stroke-linejoin="round">
+              <path d="M100 368 370 212 660 380 390 536Z" fill="#09120d" stroke="#708762" stroke-opacity=".28" stroke-width="2"/>
+              <path d="M100 368V188L370 32V212Z" fill="url(#room-left)" stroke="#71906c" stroke-opacity=".3"/>
+              <path d="M370 32 660 200V380L370 212Z" fill="url(#room-right)" stroke="#71906c" stroke-opacity=".26"/>
+              <path d="M100 368 370 212 660 380 390 536Z" fill="url(#room-floor)"/>
+              <path d="M100 368 370 212 660 380 390 536Z" fill="url(#floor-grid)"/>
+              <path d="M100 368V382L390 550V536M390 550 660 394V380" fill="#14251b" stroke="#7fa266" stroke-opacity=".32"/>
+              <path d="M111 362 370 213 649 374" fill="none" stroke="#c2ef86" stroke-opacity=".38" stroke-width="2"/>
+              <path d="M370 43V202" stroke="#c2ef86" stroke-opacity=".38"/>
+              <path d="M113 193 357 52M383 51 646 203" stroke="#8aa279" stroke-opacity=".25"/>
+              <path d="M414 97 619 216V320L414 201Z" fill="#080f10" stroke="#657e64" stroke-width="5"/>
+              <path d="M420 107 613 219V308L420 197Z" fill="url(#window-sky)"/>
+              <g fill="#d2dec1"><circle cx="447" cy="147" r="1.1"/><circle cx="477" cy="163" r=".8"/><circle cx="544" cy="225" r="1"/><circle cx="566" cy="222" r="1.2"/><circle cx="589" cy="261" r=".9"/><circle cx="451" cy="193" r=".7"/><circle cx="530" cy="206" r=".7"/><circle cx="490" cy="202" r="1"/></g>
+              <ellipse cx="557" cy="239" rx="25" ry="10" transform="rotate(30 557 239)" fill="none" stroke="#9aba8e" stroke-opacity=".5"/>
+              <circle cx="557" cy="239" r="12" fill="#526c4c"/><path d="M516 163V253" stroke="#5b735b" stroke-width="3"/>
+              <path d="M155 187 236 140V231L155 278Z" fill="#0c1912" stroke="#759268" stroke-opacity=".55"/>
+              <g transform="matrix(1 -.577 0 1 168 196)" fill="#b1d38d"><text font-size="28" font-family="Consolas,monospace">HGB</text><text y="23" font-size="6" letter-spacing="2">MAKE SOMETHING</text><text y="35" font-size="6" letter-spacing="2">WORTH EXPLORING.</text></g>
+              <path d="M126 322 151 308 176 322 151 337Z" fill="#7f8460"/><path d="M131 326 151 337 171 326 166 354 151 362 137 354Z" fill="#6e7456"/>
+              <path d="M151 322V274M151 306Q119 308 130 283 150 286 151 306M151 291Q151 263 174 270 177 291 151 300M151 280Q133 267 145 251 164 256 151 280" fill="#5b8658" stroke="#a9c27d" stroke-opacity=".35"/>
+              <path d="M576 366 610 346 636 361 602 381Z" fill="#bbad83"/><path d="M576 366V373L602 388V381M602 388 636 368V361" fill="#726e52"/>
+              <path d="M583 353 612 336 636 350 607 367Z" fill="#7b9a84"/><path d="M583 353V360L607 374V367M607 374 636 357V350" fill="#3b5b4d"/>
+              <path d="M308 414 390 367 472 414 390 462Z" fill="#c0d49a" fill-opacity=".04" stroke="#c0d49a" stroke-opacity=".17" stroke-dasharray="3 6"/>
+              <text x="392" y="507" fill="#8fa783" font-family="Consolas,monospace" font-size="7" letter-spacing="3" transform="rotate(30 392 507)">SMALL IDEAS. REAL WORLDS.</text>
+            </g>
+            <a class="room-object room-game" href="#orbit-exhibit" data-room-target="orbit" aria-label="前往微光球场游戏展台">
+              <title>001 微光球场 · 点击前往游戏展台</title>
+              <ellipse class="object-halo" cx="245" cy="385" rx="88" ry="29" fill="#bbec85" opacity=".08"/>
+              <g class="cabinet">
+                <path d="M188 358 259 399 302 374 231 333Z" fill="#111e16"/>
+                <path d="M192 221 232 198 302 239 262 262Z" fill="#758b62" stroke="#b0ce87" stroke-opacity=".4"/>
+                <path d="M262 262 302 239V374L262 397Z" fill="#233b2b" stroke="#8cac75" stroke-opacity=".35"/>
+                <path d="M192 221 262 262V397L192 356V309L205 285V250L192 243Z" fill="url(#cabinet-face)" stroke="#a9c885" stroke-opacity=".5"/>
+                <path d="M201 230 254 261V278L201 247Z" fill="#14251a"/>
+                <text transform="matrix(1 .577 0 1 207 242)" fill="#d4efad" font-size="8" font-family="Consolas,monospace" letter-spacing="1.5">ORBIT</text>
+                <path d="M209 261 254 287V330L200 299Z" fill="#08170f" stroke="#a7d87d" stroke-opacity=".5" stroke-width="1.5"/>
+                <g fill="#c2ef86"><circle class="cabinet-ball" cx="230" cy="295" r="9"/><circle cx="212" cy="283" r="2"/><circle cx="247" cy="313" r="2.5"/><circle cx="238" cy="289" r="1"/><circle cx="219" cy="302" r="1.2"/></g>
+                <path d="M200 299 254 330 262 342 192 302Z" fill="#668159"/>
+                <path d="M192 302V312L262 353V342Z" fill="#344c34"/>
+                <path d="M210 312V299" stroke="#c3cba1" stroke-width="2"/><circle cx="210" cy="298" r="4" fill="#bcd98e"/>
+                <ellipse cx="238" cy="328" rx="4" ry="2.5" fill="#d0b787"/><ellipse cx="249" cy="334" rx="4" ry="2.5" fill="#bad78d"/>
+                <path d="M211 350 241 368V375L211 357Z" fill="#172a1c"/><path d="M276 286V353" stroke="#c2ef86" stroke-opacity=".3" stroke-width="2"/>
+                <circle cx="281" cy="264" r="2" fill="#c2ef86"/>
+              </g>
+              <g class="room-tag"><rect x="164" y="408" width="135" height="29" rx="14.5"/><circle cx="179" cy="423" r="3"/><text x="190" y="427">001 / PLAY A LITTLE</text><text x="280" y="427">↗</text></g>
+            </a>
+            <a class="room-object room-sonic" href="#sonic-exhibit" data-room-target="sonic" aria-label="前往声波宇宙音乐展台">
+              <title>002 声波宇宙 · 点击前往音乐展台</title>
+              <ellipse class="object-halo" cx="501" cy="397" rx="82" ry="29" fill="#e7bd7e" opacity=".08"/>
+              <ellipse cx="501" cy="401" rx="52" ry="29" fill="#1d2a22" stroke="#b89d65" stroke-opacity=".4"/>
+              <path d="M449 386V401C449 438 553 438 553 401V386" fill="#283c2c" stroke="#8e9e73" stroke-opacity=".35"/>
+              <ellipse cx="501" cy="386" rx="52" ry="29" fill="#526044" stroke="#c3ba80" stroke-opacity=".5"/>
+              <ellipse cx="501" cy="386" rx="39" ry="21" fill="#2e422d"/><ellipse cx="501" cy="383" rx="26" ry="13" fill="#d2ba7e" opacity=".13"/>
+              <path d="M501 376V306" stroke="#c8b780" stroke-width="2" stroke-opacity=".5"/>
+              <g class="sonic-sculpture">
+                <circle cx="501" cy="284" r="66" fill="url(#sonic-core)" opacity=".4"/>
+                <ellipse cx="501" cy="284" rx="61" ry="19" transform="rotate(-28 501 284)" fill="none" stroke="#d9b77b" stroke-width="2"/>
+                <ellipse cx="501" cy="284" rx="56" ry="18" transform="rotate(55 501 284)" fill="none" stroke="#d9b77b" stroke-opacity=".45"/>
+                <ellipse cx="501" cy="284" rx="42" ry="58" transform="rotate(-28 501 284)" fill="none" stroke="#e6c38d" stroke-opacity=".35" stroke-dasharray="2 5"/>
+                <circle cx="501" cy="284" r="20" fill="#131e19" stroke="#e9c98a"/><path d="M488 279a15 15 0 0 1 22-7" fill="none" stroke="#f6dfac" stroke-width="2"/>
+                <circle cx="553" cy="256" r="4" fill="#f0d69b"/><circle cx="475" cy="237" r="2" fill="#e5c98d"/><circle cx="459" cy="307" r="2.5" fill="#cfad70"/>
+              </g>
+              <g class="room-tag"><rect x="451" y="441" width="145" height="29" rx="14.5"/><circle cx="466" cy="456" r="3"/><text x="477" y="460">002 / FEEL THE SOUND</text><text x="578" y="460">↗</text></g>
+            </a>
+            <g class="room-companion" role="button" tabindex="0" aria-label="和微光向导打招呼">
+              <title>微光向导 · 点我打个招呼</title>
+              <circle class="companion-hit-area" cx="380" cy="401" r="54" fill="transparent" pointer-events="all"/>
+              <ellipse cx="380" cy="437" rx="27" ry="9" fill="#000" opacity=".22"/>
+              <g class="companion-body">
+                <path d="M356 405Q342 394 348 388M402 405Q417 392 412 387" fill="none" stroke="#94b87b" stroke-width="4" stroke-linecap="round"/>
+                <ellipse cx="368" cy="431" rx="9" ry="4" fill="#7f9e65"/><ellipse cx="391" cy="431" rx="9" ry="4" fill="#7f9e65"/>
+                <circle cx="380" cy="405" r="26" fill="url(#companion-glass)" stroke="#e1f8bb" stroke-opacity=".6"/>
+                <ellipse cx="373" cy="391" rx="11" ry="5" fill="#f1ffdf" opacity=".35" transform="rotate(-30 373 391)"/>
+                <g class="companion-eyes" fill="#203b2b"><ellipse cx="372" cy="404" rx="2.3" ry="3.4"/><ellipse cx="387" cy="404" rx="2.3" ry="3.4"/></g>
+                <path d="M376 413q4 4 8 0" fill="none" stroke="#355338" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M379 379Q376 364 390 365Q390 376 379 379Z" fill="#a6d181"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="studio-caption"><span class="studio-caption-icon" aria-hidden="true">✦</span><div><p id="studio-hint">小小的工作室，装着大大的好奇心。</p><span>点击游戏机或星空装置，选择你的第一站。</span></div><span class="mono">↖ EXPLORE</span></div>
+        <nav class="studio-shortcuts" aria-label="工作室作品入口"><a href="#orbit-exhibit" data-room-target="orbit"><span class="mono">01</span> 游戏展台 <span aria-hidden="true">↗</span></a><a href="#sonic-exhibit" data-room-target="sonic"><span class="mono">02</span> 声音展台 <span aria-hidden="true">↗</span></a></nav>
       </div>
       <div class="hero-footer">
-        <a href="#journey" class="scroll-hint mono"><span class="scroll-line"></span> SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a>
+        <a href="#works" class="scroll-hint mono"><span class="scroll-line"></span> SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a>
         <span class="hero-index mono"><span>02</span> / EXHIBITS · 游戏与音乐</span>
-        <span class="pointer-note mono">✦ 移动鼠标，让微光跟随你</span>
+        <span class="pointer-note mono">✦ 点击场景里的物件，发现作品</span>
       </div>
     </section>
     <section id="journey" class="journey-section" aria-label="从好奇到作品的三幕旅程">
@@ -88,11 +184,15 @@
     <section id="works" class="works-section section-shell" aria-labelledby="works-title">
       <div class="section-topline reveal"><span class="eyebrow">01 / SELECTED WORKS</span><span class="mono muted">每一个作品，都是一次出发。</span></div>
       <div class="section-heading reveal"><h2 id="works-title">把想象，变成<span>作品。</span></h2><span class="exhibit-count mono">COLLECTION <b>002</b></span></div>
-      <nav class="collection-index reveal" aria-label="选择展品"><a href="#orbit-exhibit"><span class="mono">001</span> 微光球场 <span aria-hidden="true">↘</span></a><a href="#sonic-exhibit"><span class="mono">002</span> 声波宇宙 <span aria-hidden="true">↘</span></a></nav>
+      <nav class="collection-index reveal" aria-label="选择展品">
+        <a href="#orbit-exhibit"><span class="mono">001</span><span class="index-copy">微光球场<small>游戏展台 / 吞噬 · 生长 · 探索</small></span><span aria-hidden="true">↘</span></a>
+        <a href="#sonic-exhibit"><span class="mono">002</span><span class="index-copy">声波宇宙<small>声音展台 / 聆听 · 漫游 · 创造</small></span><span aria-hidden="true">↘</span></a>
+      </nav>
       <article id="orbit-exhibit" class="project-feature exhibit-anchor reveal">
-        <button class="project-art" id="open-project-art" type="button" aria-label="查看微光球场作品详情">
+        <button class="project-art" id="open-project-art" type="button" aria-label="打开微光球场游戏机展台，查看详情并试玩">
           <div class="project-art-top mono"><span>ORBIT / INTERACTIVE GAME</span><span>✦ EXHIBIT 001</span></div>
           <canvas id="orbit-cover" aria-hidden="true"></canvas>
+          <span class="arcade-display" aria-hidden="true"><span class="arcade-marquee">GROW YOUR LITTLE WORLD</span><span class="arcade-screen"><img src="assets/orbit-preview.webp" alt="" width="1440" height="960" loading="lazy" decoding="async"><span class="screen-badge">BROWSER TRIAL / 可在线试玩</span></span><span class="arcade-deck"><i class="arcade-stick"></i><i></i><i></i></span></span>
           <span class="cover-word" aria-hidden="true">ORBIT</span>
           <span class="cover-caption">吞噬 · 生长 · 探索</span>
           <span class="art-open" aria-hidden="true">↗</span>
@@ -104,6 +204,7 @@
           <div class="project-tags" aria-label="项目技术"><span>Flask</span><span>Canvas</span><span>JavaScript</span><span>SQLite</span></div>
           <dl class="project-meta"><div><dt>作品类型</dt><dd>互动网页游戏</dd></div><div><dt>游玩方式</dt><dd data-game-experience>单机 / 局域网团队</dd></div><div><dt>当前版本</dt><dd><span data-project-version>v0.10.0</span> · <time data-project-updated datetime="2026-10-26">2026-10-26</time></dd></div></dl>
           <div class="project-actions"><a class="button button-primary play-link" href="play/" target="_blank" rel="noopener"><span data-play-label>试玩</span><span class="button-arrow" aria-hidden="true">↗</span></a><button id="open-project" class="text-link" type="button">作品详情 <span aria-hidden="true">＋</span></button></div>
+          <details class="case-study"><summary><span class="mono">DESIGN NOTES</span> 这颗小球，是怎样长大的？</summary><div class="case-content"><div><h4>一个简单的起点</h4><p>收集、成长、躲避更大的对手。把这些直觉变成规则，让第一次打开游戏的人也能开始探索。</p></div><div><h4>让每一次操作都有回应</h4><p>用质量变化、分身和吐孢子形成选择；加入生存与团队玩法，让探索逐渐变成策略。</p></div><div><h4>让体验更容易开始</h4><p>网页保留经典与生存单机试玩，手机使用摇杆；局域网联机留在完整版，体验入口各自清楚。</p></div></div></details>
           <a class="source-link mono" data-repository href="https://github.com/Hgb-2005/orbit-game" target="_blank" rel="noopener">VIEW ON GITHUB <span aria-hidden="true">↗</span></a>
         </div>
       </article>
@@ -117,6 +218,7 @@
           <div class="project-tags" aria-label="声波宇宙项目技术"><span>Web Audio</span><span>WebGL</span><span>Canvas</span><span>JavaScript</span></div>
           <dl class="project-meta"><div><dt>作品类型</dt><dd>音乐可视化 / 互动创作</dd></div><div><dt>体验方式</dt><dd>浏览器直接体验</dd></div><div><dt>当前版本</dt><dd><span data-sonic-edition>第十一版</span> · <time data-sonic-updated datetime="2026-10-26">2026-10-26</time></dd></div><div><dt>音乐来源</dt><dd>内置原创音景 / 自己的音乐</dd></div></dl>
           <div class="project-actions"><a class="button button-primary sonic-link" href="https://hgb-2005.github.io/sonic-universe/" target="_blank" rel="noopener"><span>进入宇宙</span><span class="button-arrow" aria-hidden="true">↗</span></a><button class="text-link" data-open-sonic type="button">作品详情 <span aria-hidden="true">＋</span></button></div>
+          <details class="case-study"><summary><span class="mono">DESIGN NOTES</span> 怎样让音乐，拥有自己的形状？</summary><div class="case-content"><div><h4>从听见，到看见</h4><p>把声音的能量变化转化为星尘、光环与引力，让不同的音乐拥有不同的空间表情。</p></div><div><h4>从观看，到参与</h4><p>用沉浸漫游、音乐剧情和星际乐器，把被动观看变成可以探索、演奏和调整的体验。</p></div><div><h4>给这一刻一个出口</h4><p>用明信片和有声短片保存创作。可以从内置原创音景开始，也可以导入自己的音乐。</p></div></div></details>
           <a class="source-link mono" data-sonic-repository href="https://github.com/Hgb-2005/sonic-universe" target="_blank" rel="noopener">VIEW ON GITHUB <span aria-hidden="true">↗</span></a>
           <p class="sonic-listening-note">戴上耳机，播放一首原创音景，开始你的星际漫游。</p>
         </div>
@@ -124,6 +226,7 @@
           <img src="assets/sonic-blackhole.webp" alt="声波宇宙真实画面：金色星尘环绕引力黑洞，构成可以随音乐变化的宇宙" width="1200" height="750" loading="lazy" decoding="async">
           <span class="project-art-top mono"><span>SONIC UNIVERSE</span><span>✦ EXHIBIT 002</span></span>
           <span class="sonic-art-coordinate mono">04 / EVENT HORIZON<br><span>让音乐，成为星空。</span></span>
+          <span class="sonic-equalizer" aria-hidden="true"><i style="--bar:18px;--delay:-.2s"></i><i style="--bar:37px;--delay:-.8s"></i><i style="--bar:54px;--delay:-.4s"></i><i style="--bar:29px;--delay:-1s"></i><i style="--bar:44px;--delay:-.6s"></i><i style="--bar:21px;--delay:-.3s"></i></span>
           <span class="sonic-cover-title" aria-hidden="true">SONIC<br>UNIVERSE<span>聆听 · 漫游 · 创造</span></span>
           <span class="art-open" aria-hidden="true">↗</span>
         </button>
@@ -135,13 +238,13 @@
       <div class="section-topline reveal"><span class="eyebrow">02 / THE CREATOR</span><span class="mono muted">作品背后，是持续好奇的人。</span></div>
       <div class="about-layout reveal">
         <div class="identity-art" aria-hidden="true"><div class="identity-orbit orbit-one"></div><div class="identity-orbit orbit-two"></div><span class="identity-initials">H<span>G</span>B</span><span class="identity-name mono">HAO GUIBIN · 创造进行时</span><span class="identity-point point-one"></span><span class="identity-point point-two"></span></div>
-        <div class="about-copy"><p class="eyebrow">HELLO, WORLD.</p><h2 id="about-title">我是<span data-name>郝贵彬</span>，<br>很高兴你来到这里。</h2><p>这座展览馆，从一颗小球开始，慢慢长出了一片音乐星空。</p><p>从「微光球场」到「声波宇宙」，我在游戏、声音和交互之间探索，把脑海里的想法变成可以看见、可以体验的作品，也把从零开始的每一步认真收藏。</p><div class="about-signature"><span data-name>郝贵彬</span><span class="mono">CURIOSITY → IDEAS → CREATION</span></div></div>
+        <div class="about-copy"><p class="eyebrow">HELLO, WORLD.</p><h2 id="about-title">我是<span data-name>郝贵彬</span>，<br>很高兴你来到这里。</h2><p>这座展览馆，从一颗小球开始，慢慢长出了一片音乐星空。</p><p>从「微光球场」到「声波宇宙」，我在游戏、声音和交互之间探索，把脑海里的想法变成可以看见、可以体验的作品，也把从零开始的每一步认真收藏。</p><div class="studio-principles" aria-label="我的创作方向"><article><span class="mono">01</span><div><h3>先让想法可以被体验</h3><p>从能玩的一局游戏，到能听见的星空，给好奇心一个真实的入口。</p></div></article><article><span class="mono">02</span><div><h3>再把小细节慢慢做好</h3><p>照顾手机、键盘与每一次反馈，让小作品也值得停留。</p></div></article></div><div class="about-signature"><span data-name>郝贵彬</span><span class="mono">CURIOSITY → IDEAS → CREATION</span></div></div>
       </div>
     </section>
     <section class="closing section-shell reveal"><span class="eyebrow">THANK YOU FOR VISITING</span><p>世界很大，<br>一起创造一点<span>有趣的。</span></p><a class="text-link" data-profile href="https://github.com/Hgb-2005" target="_blank" rel="noopener">在 GitHub 看看我的新作品 <span aria-hidden="true">↗</span></a><span class="closing-spark" aria-hidden="true">✳</span></section>
   </main>
   <footer class="site-footer section-shell"><span>© <span data-year>2026</span> <span data-name>郝贵彬</span></span><span class="mono">MADE OF SMALL BEGINNINGS.</span><a href="#home">返回顶部 ↑</a></footer>
-  <nav class="space-nav" aria-label="展览馆楼层"><a href="#home" aria-current="location"><span>01</span><span class="space-label">入口</span></a><a href="#journey"><span>02</span><span class="space-label">序厅</span></a><a href="#works"><span>03</span><span class="space-label">作品</span></a><a href="#about"><span>04</span><span class="space-label">关于</span></a></nav>
+  <nav class="space-nav" aria-label="展厅快捷导航"><a href="#home" data-floor="home" aria-current="location"><span>⌂</span><span class="space-label">工作室</span></a><a href="#orbit-exhibit" data-floor="orbit"><span>01</span><span class="space-label">游戏</span></a><a href="#sonic-exhibit" data-floor="sonic"><span>02</span><span class="space-label">声音</span></a><a href="#about" data-floor="about"><span>✦</span><span class="space-label">关于</span></a></nav>
   <dialog id="project-dialog" aria-labelledby="dialog-title">
     <button class="dialog-close" id="close-project" type="button" aria-label="关闭作品详情">×</button>
     <div class="detail-stage"><div class="preview-topbar"><span class="mono"><i class="status-dot"></i> ORBIT / LIVE EXHIBIT</span><button id="stop-preview" type="button" hidden>结束试玩 <span aria-hidden="true">↗</span></button><span id="preview-state" role="status">正在准备预览…</span></div><div class="live-preview"><img src="assets/orbit-preview.webp" alt="微光球场的真实游戏画面：小球在食物与对手之间探索" width="1440" height="960"><iframe id="game-preview" title="微光球场实时预览" tabindex="-1" data-preview-url="play/?exhibit=1"></iframe><div class="preview-curtain"><span class="preview-orbit" aria-hidden="true">◌</span><p>一个可以亲手探索的世界。</p><span>点击进入，试着收集第一点微光。</span><button id="activate-preview" class="button button-primary" type="button">在展厅内试玩 <span aria-hidden="true">↗</span></button><span class="preview-offline" hidden>当前为静态预览，请启动本机展览馆，或下载完整游戏。</span></div></div><p class="preview-bottom mono">EAT. GROW. EXPLORE.<span>EXHIBIT 001 — HAO GUIBIN</span></p></div>
@@ -152,6 +255,7 @@
     <div class="sonic-detail-art"><img src="assets/sonic-preview.webp" alt="声波宇宙第十一版完整界面，包含音乐播放器、宇宙形态、视觉预设和引力黑洞" width="1000" height="962" loading="lazy" decoding="async"><span class="mono">EXHIBIT 002 / SOUND & STARDUST</span></div>
     <div class="dialog-content"><p class="eyebrow">EXHIBIT 002 / PROJECT NOTES</p><h2 id="sonic-dialog-title">声波宇宙<span>SONIC UNIVERSE</span></h2><p class="dialog-intro">让音乐，成为星空。<br><span data-sonic-edition>第十一版</span> · 在浏览器里聆听、漫游与创作</p><div class="project-tags"><span>Web Audio</span><span>WebGL</span><span>Canvas</span></div><p>播放内置原创音景，或导入自己的音乐。声音分析驱动星尘与光环，低音和旋律在四种宇宙形态之间展开。</p><div class="detail-grid"><div><span class="mono">01 / A UNIVERSE TO EXPLORE</span><h3>沉浸漫游</h3><p>星环、银河、山峰与引力黑洞；拖动旋转、缩放视角，用音乐剧情串起一段星际旅程。</p></div><div><span class="mono">02 / A MOMENT TO KEEP</span><h3>亲手创作</h3><p>弹奏星际乐器，录制循环与叠录；保存视觉预设，导出明信片或带声音的短片。</p></div></div><p class="sonic-privacy-note">导入的音乐、图片与草稿保存在当前浏览器中。推荐使用 Edge 或 Chrome，戴上耳机体验。</p><div class="dialog-actions"><a class="button button-primary sonic-link" href="https://hgb-2005.github.io/sonic-universe/" target="_blank" rel="noopener">进入宇宙 <span aria-hidden="true">↗</span></a><a class="text-link" data-sonic-repository href="https://github.com/Hgb-2005/sonic-universe" target="_blank" rel="noopener">查看源码 ↗</a></div></div>
   </dialog>
+  <p class="sr-only" id="studio-announcement" aria-live="polite"></p>
   <p class="sr-only" id="sound-status" aria-live="polite"></p>
 </body>
 </html>

@@ -87,7 +87,7 @@
     observer.observe(stage);
   } else stageVisible = true;
   var floorLinks = Array.from(document.querySelectorAll('.space-nav a'));
-  var floorSections = ['home', 'journey', 'works', 'about'].map(function (id) { return document.getElementById(id); });
+  var floorSections = floorLinks.map(function (link) { return document.querySelector(link.getAttribute('href')); });
   var floorPositions = [];
   function updateFloorPositions() { floorPositions = floorSections.map(function (section) { return section.getBoundingClientRect().top + scrollY; }); }
   function updateFloor() {
@@ -96,6 +96,7 @@
     floorLinks.forEach(function (link, index) { if (index === active) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current'); });
   }
   window.addEventListener('scroll', updateFloor, { passive: true });
+  new ResizeObserver(function () { updateFloorPositions(); updateFloor(); }).observe(document.querySelector('main'));
   window.addEventListener('resize', function () { resize(); updateFloorPositions(); updateFloor(); }, { passive: true });
 
   // 保留系统光标；光环只作为可交互物体的轻提示。

@@ -1,6 +1,17 @@
 # 郝贵彬的个人作品展览馆
 
-以暗色、微光和沉浸感串起动态星球入口、两件作品、个人介绍和可开关的环境音。收藏「微光球场 · ORBIT」与「声波宇宙 · Sonic Universe」，提供游戏单机试玩、完整版下载与在线音乐创作入口，并保留各自的 GitHub 源码链接。
+以暗色、微光和沉浸感串起互动工作室、两件作品、个人介绍和可开关的环境音。收藏「微光球场 · ORBIT」与「声波宇宙 · Sonic Universe」，提供游戏单机试玩、完整版下载与在线音乐创作入口，并保留各自的 GitHub 源码链接。
+
+## 第三版：互动工作室
+
+更新于 2026-10-27。首页改为原创等距工作室：点击游戏机或星空装置即可前往对应展台，微光向导会回应点击、Enter 与空格键。鼠标移动带来轻微视差；暂停动态效果或系统开启减少动态效果时，场景保持静止。
+
+- 游戏展台使用真实画面与街机外框，音乐展台保留黑洞实景并加入装饰音波。两件作品增加可展开的创作笔记，介绍想法、交互和体验方式。
+- 首页主入口直达作品；三幕创作旅程可独立浏览。底部导航在手机、平板和桌面均可使用，并标记当前所在展台。
+- 场景链接有文字入口；微光向导提供键盘操作与读屏提示。屏幕外和后台页面的新增装饰动画会暂停。
+- 场景与角色采用原生 SVG、CSS 和 JavaScript 实现，不需要远程模型、字体或额外框架。
+
+概念参考：[Henry 的空间展示](https://github.com/henryjeff/portfolio-website)、[Bruno Simon 的探索式导航](https://github.com/brunosimon/folio-2019)、[Craftzdog 的工作室与角色](https://github.com/craftzdog/craftzdog-homepage)、[Brittany Chiang 的项目层级](https://github.com/bchiang7/v4)。本版的插画与交互代码为原创实现。
 
 ## 声波宇宙 · 第十一版
 
@@ -38,8 +49,9 @@
 - assets/content.js：姓名、项目名称、项目描述、GitHub 与游戏链接。
 - index.html：完整文案、介绍、展位和详情内容。
 - assets/style.css：配色、字体、布局和手机适配。
-- assets/gallery.js：粒子、动态球体、封面、环境音和交互。
+- assets/gallery.js：背景粒子、游戏封面、环境音和作品详情交互。
 - assets/immersive.js 与 immersive.css：三幕序厅、景深、动效暂停、楼层导航和实时作品展台。
+- assets/studio.js 与 studio.css：互动工作室、微光向导、场景视差、主题展台、创作笔记与底部导航。
 - assets/orbit-preview.webp：从你的真实游戏截取的预览画面。
 - assets/collection.css：两件展品的目录、声波宇宙展位、详情与手机适配。
 - assets/sonic-blackhole.webp 与 sonic-preview.webp：声波宇宙已发布作品的真实画面。
