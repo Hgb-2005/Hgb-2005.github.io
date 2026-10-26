@@ -19,13 +19,12 @@
   document.querySelectorAll('[data-release]').forEach(function (node) { node.href = project.release || project.repository; });
   document.querySelectorAll('[data-project-version]').forEach(function (node) { node.textContent = project.version || ''; });
   document.querySelectorAll('[data-project-updated]').forEach(function (node) { node.textContent = project.updated || ''; });
-  if (project.previewAvailable === false) {
-    document.querySelector('.preview-topbar .mono').textContent = 'ORBIT / RELEASE ' + project.version;
-    document.querySelectorAll('[data-play-label]').forEach(function (node) { node.textContent = '下载游戏 ' + project.version; });
-    document.querySelector('.open-stage').firstChild.textContent = '打开展台 · 新版介绍 ';
-    document.querySelector('.preview-curtain>p').textContent = '微光球场 · ' + project.version;
-    document.querySelector('.preview-curtain>span:not(.preview-orbit)').textContent = '2v2 团队 · 手机摇杆 · 联机同步优化';
-    document.querySelector('.preview-offline').textContent = '下载完整游戏后，在电脑启动，可与同一局域网的朋友一起玩。';
+  document.querySelectorAll('[data-play-label]').forEach(function (node) { node.textContent = '试玩'; });
+  if (project.trialMode === 'browser') {
+    document.querySelector('.preview-topbar .mono').textContent = 'ORBIT / BROWSER TRIAL';
+    document.querySelector('[data-game-experience]').textContent = '单机试玩 / 完整版可联机';
+    document.querySelector('.preview-curtain>span:not(.preview-orbit)').textContent = '经典探索 / 5 分钟生存 · 最高分保存在当前浏览器';
+    document.querySelector('[data-trial-note]').textContent = '网页试玩支持单机经典与生存模式；下载完整版可与同一局域网的朋友联机。';
   }
   var titleNode = document.querySelector('[data-project-title]');
   if (titleNode && project.title) {

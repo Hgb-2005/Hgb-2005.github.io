@@ -1,6 +1,7 @@
-"""Build the static portfolio without bundling Python, databases or game runtime."""
+"""Build the static portfolio and browser trial without Python or databases."""
 from pathlib import Path
 import shutil
+from build_orbit_trial import build_trial
 
 root = Path(__file__).resolve().parents[1]
 source = root / 'outputs' / 'personal-gallery'
@@ -21,6 +22,7 @@ for old in target.iterdir():
 shutil.copy2(source / 'index.html', target / 'index.html')
 shutil.copytree(source / 'assets', target / 'assets')
 (target / 'assets' / 'deployment.js').write_text('window.GALLERY_STATIC_SITE = true;\n', encoding='utf-8')
+build_trial(source / 'game', target / 'play')
 (target / '.nojekyll').touch()
 (target / '404.html').write_text('''<!doctype html><html lang="zh-CN"><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>回到展览馆</title>

@@ -27,8 +27,7 @@ window.GALLERY_CONTENT = {
   }
 };
 
-// GitHub Pages 的部署包仅展示作品与下载；本机 Flask 展厅保留真实试玩。
+// GitHub Pages 提供浏览器单机试玩；本机 Flask 展厅继续支持完整联机游戏。
 if (window.GALLERY_STATIC_SITE) {
-  window.GALLERY_CONTENT.project.url = window.GALLERY_CONTENT.project.release;
-  window.GALLERY_CONTENT.project.previewAvailable = false;
+  window.GALLERY_CONTENT.project.trialMode = 'browser';
 }
