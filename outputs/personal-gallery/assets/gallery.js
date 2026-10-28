@@ -7,10 +7,22 @@
   document.querySelectorAll('[data-sonic-title]').forEach(function (node) { node.textContent = sonic.title || '声波宇宙'; });
   document.querySelectorAll('[data-sonic-subtitle]').forEach(function (node) { node.textContent = sonic.subtitle || 'SONIC UNIVERSE / 音乐交互作品'; });
   document.querySelectorAll('[data-sonic-description]').forEach(function (node) { if (sonic.description) node.textContent = sonic.description; });
-  document.querySelectorAll('[data-sonic-edition]').forEach(function (node) { node.textContent = sonic.edition || '第十一版'; });
+  document.querySelectorAll('[data-sonic-edition]').forEach(function (node) { node.textContent = sonic.edition || '第十六版'; });
   document.querySelectorAll('[data-sonic-updated]').forEach(function (node) { if (sonic.updated) { node.textContent = sonic.updated; node.dateTime = sonic.updated; } });
   document.querySelectorAll('.sonic-link').forEach(function (node) { node.href = sonic.url || 'https://hgb-2005.github.io/sonic-universe/'; });
   document.querySelectorAll('[data-sonic-repository]').forEach(function (node) { node.href = sonic.repository || 'https://github.com/Hgb-2005/sonic-universe'; });
+  ['cmaster', 'city'].forEach(function (key) {
+    var work = content[key];
+    if (!work) return;
+    ['title', 'subtitle', 'description', 'edition', 'updated'].forEach(function (field) {
+      document.querySelectorAll('[data-' + key + '-' + field + ']').forEach(function (node) {
+        node.textContent = work[field];
+        if (field === 'updated') node.dateTime = work[field];
+      });
+    });
+    document.querySelectorAll('[data-' + key + '-link]').forEach(function (node) { node.href = work.url; });
+    document.querySelectorAll('[data-' + key + '-repository]').forEach(function (node) { node.href = work.repository; });
+  });
   document.querySelectorAll('[data-name]').forEach(function (node) { node.textContent = content.name || '郝贵彬'; });
   document.querySelectorAll('[data-year]').forEach(function (node) { node.textContent = content.year || '2026'; });
   document.querySelectorAll('[data-profile]').forEach(function (node) { node.href = content.github || 'https://github.com/Hgb-2005'; });
@@ -18,13 +30,13 @@
   document.querySelectorAll('.play-link').forEach(function (node) { node.href = project.url || 'play/'; });
   document.querySelectorAll('[data-release]').forEach(function (node) { node.href = project.release || project.repository; });
   document.querySelectorAll('[data-project-version]').forEach(function (node) { node.textContent = project.version || ''; });
-  document.querySelectorAll('[data-project-updated]').forEach(function (node) { node.textContent = project.updated || ''; });
+  document.querySelectorAll('[data-project-updated]').forEach(function (node) { node.textContent = project.updated || ''; node.dateTime = project.updated || ''; });
   document.querySelectorAll('[data-play-label]').forEach(function (node) { node.textContent = '试玩'; });
   if (project.trialMode === 'browser') {
     document.querySelector('.preview-topbar .mono').textContent = 'ORBIT / BROWSER TRIAL';
     document.querySelector('[data-game-experience]').textContent = '单机试玩 / 完整版可联机';
-    document.querySelector('.preview-curtain>span:not(.preview-orbit)').textContent = '经典探索 / 5 分钟生存 · 最高分保存在当前浏览器';
-    document.querySelector('[data-trial-note]').textContent = '网页试玩支持单机经典与生存模式；下载完整版可与同一局域网的朋友联机。';
+    document.querySelector('.preview-curtain>span:not(.preview-orbit)').textContent = '经典 / 生存 / 练习场 · 记录保存在当前浏览器';
+    document.querySelector('[data-trial-note]').textContent = '网页试玩支持单机经典、生存与练习场；完整版支持局域网联机、2v2 和缩圈乱斗。';
   }
   var titleNode = document.querySelector('[data-project-title]');
   if (titleNode && project.title) {

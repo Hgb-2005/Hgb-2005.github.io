@@ -1,4 +1,4 @@
-"""Copy a released game tag into the local exhibit, preserving runtime data."""
+"""Copy a published game revision into the exhibit, preserving runtime data."""
 import argparse
 import io
 import json
@@ -10,20 +10,25 @@ import zipfile
 root = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser()
 parser.add_argument('--source', type=Path, default=root.parent / '球球大作战')
-parser.add_argument('--tag', required=True, help='Published tag, for example v0.10.0')
+revision = parser.add_mutually_exclusive_group(required=True)
+revision.add_argument('--tag', help='Published tag, for example v0.10.0')
+revision.add_argument('--ref', help='Published origin ref or full commit ID')
 args = parser.parse_args()
-if not re.fullmatch(r'v\d+\.\d+\.\d+', args.tag):
+if args.tag and not re.fullmatch(r'v\d+\.\d+\.\d+', args.tag):
     parser.error('Expected a stable vX.Y.Z tag')
 
 def git(*parts):
     return subprocess.check_output(['git', '-C', str(args.source), *parts])
 
-commit = git('rev-parse', args.tag + '^{commit}').decode().strip()
+commit = git('rev-parse', (args.tag or args.ref) + '^{commit}').decode().strip()
+if not git('branch', '-r', '--contains', commit).strip():
+    raise SystemExit('Fetch first: revision must exist on a published remote branch')
 date = git('show', '-s', '--format=%cs', commit).decode().strip()
 archive = zipfile.ZipFile(io.BytesIO(git('archive', '--format=zip', commit)))
 version = json.loads(archive.read('package.json'))['version']
-if args.tag != 'v' + version:
+if args.tag and args.tag != 'v' + version:
     raise SystemExit('Tag and package version differ')
+version = 'v' + version
 gallery = root / 'outputs' / 'personal-gallery'
 game = (gallery / 'game').resolve()
 manifest = gallery / 'orbit-version.json'
@@ -38,12 +43,7 @@ for name in set(old['files']) | set(files):
         path.write_bytes(files[name])
     elif path.is_file():
         path.unlink()
-manifest.write_text(json.dumps({'version': args.tag, 'commit': commit, 'date': date,
+manifest.write_text(json.dumps({'version': version, 'commit': commit, 'date': date,
                                 'files': sorted(files)}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-for target in [gallery / 'assets' / 'content.js', gallery / 'index.html']:
-    text = re.sub(r'v\d+\.\d+\.\d+', args.tag, target.read_text(encoding='utf-8'))
-    text = re.sub(r"updated: '[0-9-]+'", "updated: '" + date + "'", text)
-    text = re.sub(r'(<time data-project-updated datetime=")[0-9-]+(">)[0-9-]+',
-                  r'\g<1>' + date + r'\g<2>' + date, text)
-    target.write_text(text, encoding='utf-8', newline='\n')
-print('Synchronized', args.tag, commit, '—', len(files), 'source files; runtime data preserved.')
+print('Synchronized', version, commit, '—', len(files), 'source files; runtime data preserved.')
+print('Update project metadata and notes in content.js and index.html before publishing.')

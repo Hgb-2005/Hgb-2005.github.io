@@ -1,8 +1,19 @@
 # 郝贵彬的个人作品展览馆
 
-以暗色、微光和沉浸感串起互动工作室、两件作品、个人介绍和可开关的环境音。收藏「微光球场 · ORBIT」与「声波宇宙 · Sonic Universe」，提供游戏单机试玩、完整版下载与在线音乐创作入口，并保留各自的 GitHub 源码链接。
+以暗色、微光和沉浸感串起互动工作室、四件作品、个人介绍和可开关的环境音。收藏球球大作战、音乐星空、CMaster C 语言学习平台与掌心小城，提供各自的体验或启动入口及 GitHub 源码链接。
 
-## 第三版：互动工作室
+## 第四版：四个正在生长的世界
+
+更新于 2026-10-29。游戏机、星空装置、墙上代码屏与桌角小岛分别通向四件作品；首页目录和底部导航同步扩展，保留键盘操作与减少动态效果支持。
+
+- 微光球场 v0.16.0：同步已发布源码与真实截图，浏览器试玩支持经典、生存、练习场，最高分与最近 20 局保存在当前浏览器。完整版支持局域网联机、手动选队、移动预测、缩圈乱斗与协作人机。
+- 声波宇宙第十六版：更新音乐星空介绍与截图，展示声音包络、多层星云、四套星空预设和创作导出，直接进入原作品网址。
+- CMaster：新增课程首页实景、课程与判题介绍、个人学习笔记和导出功能说明。入口指向 GitHub 启动说明；需按说明准备 Python 与 GCC 后运行 Flask 后端。
+- 掌心小城第十四版：新增真实小岛明信片展台、四季居民生活、照片与收藏介绍，直接进入原作品网址。
+
+四件作品的个人数据继续留在各自应用。作品集使用公开源码与截图，不包含账号、学习进度、音乐文件或城市存档。
+
+## 历史记录 · 第三版：互动工作室
 
 更新于 2026-10-27。首页改为原创等距工作室：点击游戏机或星空装置即可前往对应展台，微光向导会回应点击、Enter 与空格键。鼠标移动带来轻微视差；暂停动态效果或系统开启减少动态效果时，场景保持静止。
 
@@ -13,11 +24,11 @@
 
 概念参考：[Henry 的空间展示](https://github.com/henryjeff/portfolio-website)、[Bruno Simon 的探索式导航](https://github.com/brunosimon/folio-2019)、[Craftzdog 的工作室与角色](https://github.com/craftzdog/craftzdog-homepage)、[Brittany Chiang 的项目层级](https://github.com/bchiang7/v4)。本版的插画与交互代码为原创实现。
 
-## 声波宇宙 · 第十一版
+## 历史记录 · 声波宇宙第十一版
 
 更新于 2026-10-26。第二件展品使用已发布作品的真实引力黑洞与完整界面截图，展示音乐星空、沉浸漫游、星际乐器、明信片和有声短片。点击「进入宇宙」在新标签页打开 https://hgb-2005.github.io/sonic-universe/ 。展厅不预加载音乐作品或自动播放声音，进入作品时会关闭展厅环境音。
 
-## 当前展品 v0.10.0
+## 历史记录 · 游戏 v0.10.0
 
 更新于 2026-10-26：2v2 团队、手机摇杆、3 / 5 / 8 分钟房间规则、联机同步优化。展台使用新版实际游戏截图；游戏源码与发布标签一致，本机支持完整游戏。GitHub 网页版提供经典／生存单机试玩与完整版下载，联机仍需下载完整版。
 
@@ -53,16 +64,18 @@
 - assets/immersive.js 与 immersive.css：三幕序厅、景深、动效暂停、楼层导航和实时作品展台。
 - assets/studio.js 与 studio.css：互动工作室、微光向导、场景视差、主题展台、创作笔记与底部导航。
 - assets/orbit-preview.webp：从你的真实游戏截取的预览画面。
-- assets/collection.css：两件展品的目录、声波宇宙展位、详情与手机适配。
+- assets/collection.css：声波宇宙展位、详情与手机适配。
+- assets/exhibits.css：四件展品的目录、新增展台与手机导航。
+- assets/cmaster-preview.webp 与 city-preview.webp：CMaster 与掌心小城的真实截图。
 - assets/sonic-blackhole.webp 与 sonic-preview.webp：声波宇宙已发布作品的真实画面。
 - game/：现有游戏的源码副本，保留单机、联机、分数 API 与规则。
 - app.py：把展览馆和真实游戏放在同一个 Flask 服务里。
 
-交付包使用自己的 instance/game.sqlite3。首次运行自动生成，不会改动你原游戏的数据库。内置游戏与 Hgb-2005/orbit-game 的 v0.10.0 发布标签一致，提交与文件清单记录在 orbit-version.json。
+交付包使用自己的 instance/game.sqlite3。首次运行自动生成，不会改动你原游戏的数据库。内置游戏与 Hgb-2005/orbit-game 已发布的 v0.16.0 提交 43c1fdd 一致，提交与文件清单记录在 orbit-version.json。
 
 ## GitHub 网页版
 
-仓库中的 tools/build-pages.py 生成静态展览馆与 `/play/` 单机试玩，部署时将 assets/deployment.js 设置为网页版模式。网页试玩使用原版 LocalSession 和绘制、音效、输入模块；tools/orbit-trial/ 适配本地最高分存储并隐藏联机选项，不请求 Flask API 或建立 WebSocket。支持新窗口和展厅内试玩，最高分与完整版的待同步分数隔离保存。禁用浏览器存储时仍能游玩，并提示记录只在本次页面保留。GitHub Pages 不运行 Flask；完整联机功能保留在本机版。
+仓库中的 tools/build-pages.py 生成静态展览馆与 `/play/` 单机试玩，部署时将 assets/deployment.js 设置为网页版模式。网页试玩使用原版 LocalSession 和绘制、音效、输入模块；tools/orbit-trial/ 适配本地最高分、最近 20 局记录并隐藏联机选项，不请求 Flask API 或建立 WebSocket。支持新窗口和展厅内试玩，记录与完整版的待同步数据隔离保存。禁用浏览器存储时仍能游玩，并提示记录只在本次页面保留。GitHub Pages 不运行 Flask；完整联机功能保留在本机版。CMaster 同样需要单独运行后端。
 
 若希望展览馆和游戏一起运行，需要支持 Python、Flask、WebSocket 和持久化存储的服务。当前 app.py 启动方式用于本机预览；公网部署应配置生产服务和数据库持久化。
 

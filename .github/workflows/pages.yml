@@ -22,6 +22,11 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install template build dependency
+        run: python3 -m pip install -r tools/requirements-build.txt
       - name: Build static gallery
         run: python3 tools/build-pages.py
       - uses: actions/configure-pages@v5
