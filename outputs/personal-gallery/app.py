@@ -40,6 +40,14 @@ def gallery_alias():
     return gallery_home()
 
 
+@app.get('/works/<work_id>/')
+def work_story(work_id):
+    from flask import abort
+    if work_id not in {'orbit', 'sonic', 'cmaster', 'city'}:
+        abort(404)
+    return send_from_directory(ROOT / 'works' / work_id, 'index.html')
+
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', '8766'))
     print('Gallery: http://127.0.0.1:' + str(port) + '/', flush=True)

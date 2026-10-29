@@ -9,6 +9,10 @@
 - **CMaster · C 语言学习平台**：12 章课程、60 道真实编译练习、166 张训练卡、知识图谱、私人学习笔记与记录导出。源码与本机启动说明：https://github.com/Hgb-2005/cmaster#readme 。这是 Flask 后端应用，作品集提供真实截图和启动说明，在线判题需自行运行后端。
 - **掌心小城 · 第十四版「小城更近一点」**：自由建造、四季居民故事、天气、访客、相册与多城收藏，适配手机。在线体验：https://hgb-2005.github.io/palm-city/ ，源码：https://github.com/Hgb-2005/palm-city 。
 
+## 第五版：作品故事与互动预览
+
+每件作品新增可直接分享的独立故事页，记录创作起点、体验设计、已完成的成长阶段与第一次体验建议。作品区新增可切换预览台，支持键盘操作、深链接和手机布局；CMaster 状态明确标注为本机运行、云端待部署。故事数据集中在 `outputs/personal-gallery/assets/stories.json`，模板位于 `tools/templates/`，由 `tools/build_gallery_stories.py` 和 `tools/build-pages.py` 生成静态页面。
+
 - 游戏源码：https://github.com/Hgb-2005/orbit-game
 - 当前游戏源码：https://github.com/Hgb-2005/orbit-game/tree/43c1fddaa8da4722ff979f6e71200a7ebfdcfa64
 - `outputs/personal-gallery/`：完整本机展览馆，内含与已发布游戏提交一致的源码；版本来源记录于 `orbit-version.json`。

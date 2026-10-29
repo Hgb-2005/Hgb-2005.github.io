@@ -2,6 +2,7 @@
 from pathlib import Path
 import shutil
 from build_orbit_trial import build_trial
+from build_gallery_stories import build_stories
 
 root = Path(__file__).resolve().parents[1]
 source = root / 'outputs' / 'personal-gallery'
@@ -21,6 +22,7 @@ for old in target.iterdir():
         old.unlink()
 shutil.copy2(source / 'index.html', target / 'index.html')
 shutil.copytree(source / 'assets', target / 'assets')
+build_stories(source, target)
 (target / 'assets' / 'deployment.js').write_text('window.GALLERY_STATIC_SITE = true;\n', encoding='utf-8')
 build_trial(source / 'game', target / 'play')
 (target / '.nojekyll').touch()

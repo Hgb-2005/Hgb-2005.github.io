@@ -1,0 +1,14 @@
+<!-- showcase:start -->
+<section class="showcase section-shell" id="showcase" aria-labelledby="showcase-title">
+  <div class="showcase-heading"><div><p class="eyebrow">THE COLLECTION / 四件正在生长的作品</p><h2 id="showcase-title">挑一个世界，<span>先靠近看看。</span></h2></div><p>游戏、声音、代码和日常。<br>每一种好奇，都有自己的入口。</p></div>
+  <div class="showcase-tabs" role="group" aria-label="选择预览作品">
+    {% for work in works %}<a id="tab-{{ work.id }}" href="#showcase-{{ work.id }}" data-showcase-tab="{{ work.id }}" style="--work-accent:{{ work.accent }}"><span>{{ work.number }}</span><span data-showcase-name="{{ work.id }}">{{ work.name }}</span><small>{{ work.category }}</small></a>{% endfor %}
+  </div>
+  <div class="showcase-panels">
+    {% for work in works %}<article id="showcase-{{ work.id }}" class="showcase-panel" data-showcase-panel="{{ work.id }}" style="--work-accent:{{ work.accent }}" aria-labelledby="showcase-title-{{ work.id }}">
+      <a class="showcase-object" href="works/{{ work.id }}/" aria-label="了解{{ work.name }}的创作故事"><span class="showcase-orbit" aria-hidden="true"></span><span class="showcase-image"><img src="assets/{{ work.image }}" alt="{{ work.alt }}" width="1440" height="1000" loading="lazy" decoding="async"></span><span class="showcase-plinth" aria-hidden="true"></span><span class="showcase-object-label mono">{{ work.english }}<span>EXHIBIT {{ work.number }}</span></span></a>
+      <div class="showcase-copy"><span class="work-status" data-showcase-status="{{ work.id }}"><i aria-hidden="true"></i>{{ work.status }}</span><p class="mono showcase-category">{{ work.category }} / <span data-showcase-version="{{ work.id }}">{{ work.version }}</span></p><h3 id="showcase-title-{{ work.id }}">{{ work.headline }}</h3><p>{{ work.intro }}</p><div class="showcase-actions"><a class="button button-primary" href="works/{{ work.id }}/">探索这件作品 <span aria-hidden="true">↗</span></a><a class="text-link" href="#{{ work.id }}-exhibit">看展台 ↓</a></div><span class="showcase-note">{{ work.note }}</span></div>
+    </article>{% endfor %}
+  </div><p class="sr-only" id="showcase-status" aria-live="polite"></p>
+</section>
+<!-- showcase:end -->
