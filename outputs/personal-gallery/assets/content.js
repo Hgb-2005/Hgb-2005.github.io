@@ -35,7 +35,7 @@ window.GALLERY_CONTENT = {
     edition: '安全判题与部署准备',
     updated: '2026-10-29',
     repository: 'https://github.com/Hgb-2005/cmaster',
-    url: 'https://github.com/Hgb-2005/cmaster#readme'
+    url: 'http://127.0.0.1:5001/'
   },
   city: {
     title: '掌心小城',

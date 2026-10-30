@@ -54,8 +54,8 @@
     "id": "cmaster", "contentKey": "cmaster", "number": "03", "name": "CMaster", "english": "C / A PLACE TO LEARN", "category": "编程学习", "accent": "#b9cef4",
     "headline": "让第一行代码，有清楚的下一步。", "intro": "读懂一个概念，写下一段代码，再从真实反馈里继续。把课程、练习和自己的理解连成一条学习路径。",
     "image": "cmaster-preview.webp", "alt": "CMaster 真实课程首页，显示章节、知识点、在线练习与学习入口", "imageLabel": "本机运行实景 / 课程首页",
-    "version": "安全判题与部署准备", "updated": "2026-10-29", "status": "本机运行 · 云端待部署", "action": "查看启动说明", "url": "https://github.com/Hgb-2005/cmaster#readme", "repository": "https://github.com/Hgb-2005/cmaster",
-    "note": "目前通过仓库说明在电脑本机运行。完整在线版部署方案已准备，尚无公网学习网址；此处入口会打开 GitHub。",
+    "version": "安全判题与部署准备", "updated": "2026-10-29", "status": "本机运行 · 云端待部署", "action": "打开本机 CMaster", "url": "http://127.0.0.1:5001/", "repository": "https://github.com/Hgb-2005/cmaster",
+    "note": "请先在这台电脑启动 CMaster，再从此处进入课程首页。127.0.0.1 只指向当前电脑；其他访客需在自己的电脑启动，完整在线版仍待部署。",
     "question": "怎样把「看懂了」，变成真的写对？",
     "overview": {
       "heading": "读懂概念，也写出能运行的代码。",
@@ -72,7 +72,7 @@
       {"title": "把不容易看见的概念展开", "text": "知识图谱梳理联系，内存演示解释指针与布局；练习后再回到具体知识点。"},
       {"title": "让学习能接着上次继续", "text": "笔记、收藏、最近通过代码和提交历史一起保存；记录可导出，便于回顾。"}
     ],
-    "steps": ["按 GitHub 说明启动本机平台，注册自己的学习账号。", "读第一章，再提交 c001，观察真实判题结果。", "留下笔记或收藏，回到个人中心继续学习。"],
+    "steps": ["在已准备好 CMaster 的电脑上启动 start.cmd，打开学习平台。", "读第一章，再提交 c001，观察真实判题结果。", "留下笔记或收藏，回到个人中心继续学习。"],
     "stages": [
       {"label": "起点", "title": "让代码真的运行", "text": "以课程、游乐场和真实 GCC 判题构成基本学习循环，让练习有可以核对的结果。", "change": "从阅读示例，到验证自己的答案。"},
       {"label": "学习记录", "title": "把理解留在自己的路径上", "text": "加入私人笔记、收藏、提交历史、通过代码恢复与学习记录导出，帮助接着上次继续。", "change": "从一次练习，到能够回顾的积累。"},
