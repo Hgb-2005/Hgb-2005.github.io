@@ -32,7 +32,7 @@ def build_stories(source, target):
         folder = target / 'works' / work['id']
         folder.mkdir(parents=True, exist_ok=True)
         (folder / 'index.html').write_text(
-            template.render(work=page_work, next=works[(index + 1) % len(works)]),
+            template.render(work=page_work, works=works, next=works[(index + 1) % len(works)]),
             encoding='utf-8')
     print('Rendered four static work stories and the home showcase')
 

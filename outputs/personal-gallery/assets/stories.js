@@ -117,7 +117,7 @@
     page.querySelectorAll('[data-work-name]').forEach(function (node) {
       node.textContent = work.name;
     });
-    document.title = work.name + ' · 郝贵彬的作品故事';
+    document.title = work.name + ' · 郝贵彬的作品介绍';
   });
 
   if (panels.length && tabs.length) setWork(active, false);

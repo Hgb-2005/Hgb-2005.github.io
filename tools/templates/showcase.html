@@ -6,9 +6,15 @@
   </div>
   <div class="showcase-panels">
     {% for work in works %}<article id="showcase-{{ work.id }}" class="showcase-panel" data-showcase-panel="{{ work.id }}" style="--work-accent:{{ work.accent }}" aria-labelledby="showcase-title-{{ work.id }}">
-      <a class="showcase-object" href="works/{{ work.id }}/" aria-label="了解{{ work.name }}的创作故事"><span class="showcase-orbit" aria-hidden="true"></span><span class="showcase-image"><img src="assets/{{ work.image }}" alt="{{ work.alt }}" width="1440" height="1000" loading="lazy" decoding="async"></span><span class="showcase-plinth" aria-hidden="true"></span><span class="showcase-object-label mono">{{ work.english }}<span>EXHIBIT {{ work.number }}</span></span></a>
-      <div class="showcase-copy"><span class="work-status" data-showcase-status="{{ work.id }}"><i aria-hidden="true"></i>{{ work.status }}</span><p class="mono showcase-category">{{ work.category }} / <span data-showcase-version="{{ work.id }}">{{ work.version }}</span></p><h3 id="showcase-title-{{ work.id }}">{{ work.headline }}</h3><p>{{ work.intro }}</p><div class="showcase-actions"><a class="button button-primary" href="works/{{ work.id }}/">探索这件作品 <span aria-hidden="true">↗</span></a><a class="text-link" href="#{{ work.id }}-exhibit">看展台 ↓</a></div><span class="showcase-note">{{ work.note }}</span></div>
+      <a class="showcase-object" href="works/{{ work.id }}/" aria-label="阅读{{ work.name }}的作品介绍"><span class="showcase-orbit" aria-hidden="true"></span><span class="showcase-image"><img src="assets/{{ work.image }}" alt="{{ work.alt }}" width="1440" height="1000" loading="lazy" decoding="async"></span><span class="showcase-plinth" aria-hidden="true"></span><span class="showcase-object-label mono">{{ work.english }}<span>EXHIBIT {{ work.number }}</span></span></a>
+      <div class="showcase-copy"><span class="work-status" data-showcase-status="{{ work.id }}"><i aria-hidden="true"></i>{{ work.status }}</span><p class="mono showcase-category">{{ work.category }} / <span data-showcase-version="{{ work.id }}">{{ work.version }}</span></p><h3 id="showcase-title-{{ work.id }}">{{ work.headline }}</h3><p>{{ work.intro }}</p><div class="showcase-actions"><a class="button button-primary" href="works/{{ work.id }}/" aria-label="阅读{{ work.name }}的作品介绍">作品介绍 <span aria-hidden="true">↗</span></a><a class="text-link" href="#{{ work.id }}-exhibit">看展台 ↓</a></div><span class="showcase-note">{{ work.note }}</span></div>
     </article>{% endfor %}
   </div><p class="sr-only" id="showcase-status" aria-live="polite"></p>
 </section>
+<div class="intro-directory" id="work-introductions">
+  <div class="intro-directory-heading"><h3>作品介绍</h3><p>了解每件作品的创作起点、体验设计与成长记录。</p></div>
+  <nav class="collection-index" aria-label="作品介绍目录">
+    {% for work in works %}<a href="works/{{ work.id }}/" style="--work-accent:{{ work.accent }}"><span class="mono">{{ work.number }}</span><span class="index-copy">{{ work.name }}<small>{{ work.category }} / 查看完整介绍</small></span><span aria-hidden="true">↗</span></a>{% endfor %}
+  </nav>
+</div>
 <!-- showcase:end -->

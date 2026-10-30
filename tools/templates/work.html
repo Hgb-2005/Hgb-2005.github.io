@@ -2,15 +2,15 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#0b100e"><title>{{ work.name }} · 郝贵彬的作品故事</title>
+  <meta name="theme-color" content="#0b100e"><title>{{ work.name }} · 郝贵彬的作品介绍</title>
   <meta name="description" content="{{ work.intro }}">
-  <meta property="og:title" content="{{ work.name }} · 郝贵彬的作品故事"><meta property="og:description" content="{{ work.intro }}">
+  <meta property="og:title" content="{{ work.name }} · 郝贵彬的作品介绍"><meta property="og:description" content="{{ work.intro }}">
   <meta property="og:type" content="article"><meta property="og:image" content="https://hgb-2005.github.io/assets/{{ work.image }}">
   <link rel="canonical" href="https://hgb-2005.github.io/works/{{ work.id }}/">
   <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
-  <link rel="stylesheet" href="../../assets/stories.css?v=0500">
+  <link rel="stylesheet" href="../../assets/stories.css?v=0510">
   <script src="../../assets/deployment.js?v=0100" defer></script><script src="../../assets/content.js?v=0500" defer></script>
-  <script src="../../assets/stories-data.js?v=0500" defer></script><script src="../../assets/stories.js?v=0500" defer></script>
+  <script src="../../assets/stories-data.js?v=0510" defer></script><script src="../../assets/stories.js?v=0510" defer></script>
 </head>
 <body class="work-page" data-work="{{ work.id }}" data-content-key="{{ work.contentKey }}" style="--work-accent:{{ work.accent }}">
   <a class="story-skip" href="#story-main">跳到作品内容</a>
@@ -18,15 +18,17 @@
   <main id="story-main">
     <section class="story-hero story-shell">
       <nav class="story-breadcrumb" aria-label="面包屑"><a href="../../#works">作品</a><span aria-hidden="true">/</span><span aria-current="page">{{ work.name }}</span></nav>
+      <nav class="story-work-nav" aria-label="切换作品介绍">{% for item in works %}<a href="../{{ item.id }}/" style="--item-accent:{{ item.accent }}"{% if item.id == work.id %} aria-current="page"{% endif %}><span>{{ item.number }}</span>{{ item.name }}<small>作品介绍</small></a>{% endfor %}</nav>
       <div class="story-hero-grid"><div><p class="story-eyebrow">EXHIBIT {{ work.number }} / {{ work.category }}</p><p class="story-name" data-work-name>{{ work.name }}</p><h1>{{ work.headline }}</h1><p class="story-intro">{{ work.intro }}</p><div class="story-actions"><a class="story-button" data-work-action href="{{ work.primaryHref }}" target="_blank" rel="noopener"><span data-work-action-label>{{ work.action }}</span><span aria-hidden="true">↗</span></a><a class="story-text-link" data-work-repository href="{{ work.repository }}" target="_blank" rel="noopener">查看源码 ↗</a></div><p class="story-use-note">{{ work.note }}</p></div><div class="story-hero-meta"><span class="story-number" aria-hidden="true">{{ work.number }}</span><dl><div><dt>作品方向</dt><dd>{{ work.category }}</dd></div><div><dt>当前版本</dt><dd data-work-version>{{ work.version }}</dd></div><div><dt>更新日期</dt><dd><time datetime="{{ work.updated }}" data-work-updated>{{ work.updated }}</time></dd></div><div><dt>体验状态</dt><dd class="story-status" data-work-status>{{ work.status }}</dd></div></dl></div></div>
       <figure class="story-cover"><img src="../../assets/{{ work.image }}" alt="{{ work.alt }}" width="1440" height="1000" decoding="async" fetchpriority="high"><figcaption><span>{{ work.imageLabel }}</span><span class="mono">HAO GUIBIN / {{ work.english }}</span></figcaption></figure>
     </section>
-    <nav class="story-sections story-shell" aria-label="作品故事章节"><a href="#idea">01 创作起点</a><a href="#experience">02 体验设计</a><a href="#growth">03 成长记录</a><a href="#try">04 亲手试试</a></nav>
+    <nav class="story-sections story-shell" aria-label="作品介绍章节">{% if work.overview is defined %}<a href="#overview">00 作品概览</a>{% endif %}<a href="#idea">01 创作起点</a><a href="#experience">02 体验设计</a><a href="#growth">03 成长记录</a><a href="#try">04 亲手试试</a></nav>
+{% if work.overview is defined %}    <section id="overview" class="story-section story-shell" aria-labelledby="overview-title"><div class="story-section-heading"><div><p class="story-eyebrow">00 / ABOUT THIS WORK</p><h2 id="overview-title">{{ work.overview.heading }}</h2></div><p>{{ work.name }} / 作品概览</p></div><p class="story-body story-overview-intro">{{ work.overview.text }}</p><div class="story-overview-features">{% for feature in work.overview.features %}<article><span class="story-eyebrow">0{{ loop.index }}</span><h3>{{ feature.title }}</h3><p>{{ feature.text }}</p></article>{% endfor %}</div></section>{% endif %}
     <section id="idea" class="story-section story-shell story-split"><div><p class="story-eyebrow">01 / THE STARTING POINT</p><h2>{{ work.question }}</h2></div><div><p class="story-body">{{ work.idea }}</p><aside class="story-observation"><span class="story-eyebrow">创作中的一个发现</span><p>{{ work.reflection }}</p></aside></div></section>
     <section id="experience" class="story-section story-shell"><div class="story-section-heading"><div><p class="story-eyebrow">02 / EXPERIENCE DESIGN</p><h2>把想法，落在体验里。</h2></div><p>不只列出功能，也解释为什么这样做。</p></div><div class="story-decisions">{% for decision in work.decisions %}<article><span class="story-decision-number">0{{ loop.index }}</span><h3>{{ decision.title }}</h3><p>{{ decision.text }}</p></article>{% endfor %}</div></section>
     <section id="growth" class="story-section story-shell"><div class="story-section-heading"><div><p class="story-eyebrow">03 / WORK IN PROGRESS</p><h2>它是怎样，慢慢长大的。</h2></div><p>选取已经完成的创作阶段，<br>记录每次变化的意义。</p></div><ol class="story-timeline">{% for stage in work.stages %}<li><span class="timeline-marker" aria-hidden="true">{{ loop.index }}</span><div class="timeline-label">{{ stage.label }}</div><div class="timeline-content"><h3>{{ stage.title }}</h3><p>{{ stage.text }}</p><p class="timeline-change"><span aria-hidden="true">↗</span> {{ stage.change }}</p></div></li>{% endfor %}</ol></section>
     <section id="try" class="story-section story-shell story-split"><div><p class="story-eyebrow">04 / YOUR FIRST FEW MINUTES</p><h2>先试一件小事。</h2><p class="story-body">用几分钟，认识这个作品。</p></div><ol class="story-steps">{% for step in work.steps %}<li><span>0{{ loop.index }}</span><p>{{ step }}</p></li>{% endfor %}</ol></section>
-    <section class="story-invitation story-shell"><p class="story-eyebrow">IDEAS ARE BETTER WHEN EXPERIENCED</p><h2><span data-work-name>{{ work.name }}</span>，<br>等你亲手探索。</h2><a class="story-button" data-work-action href="{{ work.primaryHref }}" target="_blank" rel="noopener"><span data-work-action-label>{{ work.action }}</span><span aria-hidden="true">↗</span></a><p class="story-use-note">{{ work.note }}</p><div class="story-share"><button type="button" data-share-story hidden>复制作品故事链接 <span aria-hidden="true">↗</span></button><span role="status" data-share-status></span></div></section>
+    <section class="story-invitation story-shell"><p class="story-eyebrow">IDEAS ARE BETTER WHEN EXPERIENCED</p><h2><span data-work-name>{{ work.name }}</span>，<br>等你亲手探索。</h2><a class="story-button" data-work-action href="{{ work.primaryHref }}" target="_blank" rel="noopener"><span data-work-action-label>{{ work.action }}</span><span aria-hidden="true">↗</span></a><p class="story-use-note">{{ work.note }}</p><div class="story-share"><button type="button" data-share-story hidden>复制作品介绍链接 <span aria-hidden="true">↗</span></button><span role="status" data-share-status></span></div></section>
     <nav class="story-next story-shell" aria-label="继续探索作品"><a href="../../#works">← 回到全部作品</a><a href="../{{ next.id }}/"><small>下一件展品 / {{ next.category }}</small><span>{{ next.name }} <span aria-hidden="true">↗</span></span></a></nav>
   </main><footer class="story-footer story-shell"><span>© 2026 郝贵彬</span><a href="../../#about">认识创作者 ↗</a><span class="mono">SMALL BEGINNINGS. REAL EXPERIENCES.</span></footer>
 </body></html>
